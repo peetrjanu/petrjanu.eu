@@ -474,14 +474,15 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-    <span class="nav-logo-text" style="display:none;">PJ</span>
+    <img src="logo-pj.png" alt="Petr Janů">
   </a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="digitalni-ucitel.html" class="active">Digitální učitel 2026</a></li>
+    <li><a href="digitalni-kancelar.html">Digitální kancelář</a></li>
+    <li><a href="tvorba-webu.html">Tvorba webů</a></li>
     <li><a href="kontakt.html">Kontakt</a></li>
     <li><a href="kontakt.html" class="nav-cta">Chci nabídku</a></li>
   </ul>
@@ -678,11 +679,13 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="Logo-pj.png" alt="Petr Janů">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'">
   </div>
   <p>© 2026 Petr Janů · petrjanu.eu</p>
-  <div style="display:flex; gap:20px;">
+  <div style="display:flex; gap:20px; flex-wrap:wrap;">
     <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
+    <a href="digitalni-kancelar.html">Digitální kancelář</a>
+    <a href="tvorba-webu.html">Tvorba webů</a>
     <a href="kontakt.html">Kontakt</a>
   </div>
 </footer>

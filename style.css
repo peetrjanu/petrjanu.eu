@@ -31,7 +31,6 @@ body {
   background: var(--bg);
   color: var(--ink);
   line-height: 1.65;
-  font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,19 +49,9 @@ nav {
 }
 
 .nav-logo img {
-  height: 56px;
+  height: 44px;
   width: auto;
   display: block;
-  mix-blend-mode: multiply;
-}
-
-.nav-logo-text {
-  font-family: 'DM Serif Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -1px;
-  align-items: center;
 }
 
 .nav-links {
@@ -73,7 +62,7 @@ nav {
 }
 
 .nav-links a {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--muted);
   text-decoration: none;
   font-weight: 400;
@@ -170,7 +159,7 @@ footer {
   flex-wrap: wrap;
 }
 
-.footer-logo img { height: 36px; mix-blend-mode: multiply; }
+.footer-logo img { height: 36px; }
 
 footer p {
   font-size: 12px;
