@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tvorba webů s AI — Petr Janů. Moderní weby pro školy a firmy, rychle a bez zbytečné složitosti.">
+  <title>Tvorba webů — Petr Janů</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ---- HERO ---- */
+    .tw-hero {
+      background: var(--ink);
+      padding: 72px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tw-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,74,39,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .tw-hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tw-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 46px;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .tw-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .tw-hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 28px;
+    }
+
+    .tw-price-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,74,39,0.15);
+      border: 1px solid rgba(232,74,39,0.3);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 24px;
+    }
+
+    /* ---- FOR WHOM ---- */
+    .for-whom {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 48px;
+    }
+
+    .for-whom-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .for-whom span {
+      font-size: 13.5px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .for-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ---- CO NABÍZÍM ---- */
+    .offer-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+
+    .offer-section > .section-label { margin-bottom: 8px; }
+
+    .offer-section > h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+
+    .offer-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+
+    .offer-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(232,74,39,0.08);
+    }
+
+    .offer-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .offer-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .offer-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ---- PORTFOLIO ---- */
+    .portfolio-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 48px;
+    }
+
+    .portfolio-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .portfolio-inner > .section-label { margin-bottom: 8px; }
+
+    .portfolio-inner > h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .portfolio-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(232,74,39,0.08);
+    }
+
+    .portfolio-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--border-strong);
+      line-height: 1;
+    }
+
+    .portfolio-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .portfolio-url {
+      font-size: 12.5px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .portfolio-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    .portfolio-pill {
+      display: inline-block;
+      margin-top: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* ---- PROCESS ---- */
+    .process-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+
+    .process-section > .section-label { margin-bottom: 8px; }
+
+    .process-section > h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 24px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .step-content {
+      padding-top: 12px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ---- CTA BANNER ---- */
+    .cta-banner {
+      background: var(--ink);
+      padding: 72px 48px;
+    }
+
+    .cta-banner-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      color: #fff;
+      letter-spacing: -0.3px;
+      max-width: 500px;
+      line-height: 1.3;
+    }
+
+    .cta-banner h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .tw-hero { padding: 48px 20px; }
+      .tw-hero h1 { font-size: 32px; }
+      .for-whom { padding: 24px 20px; }
+      .offer-section { padding: 48px 20px; }
+      .offer-grid { grid-template-columns: 1fr; }
+      .portfolio-section { padding: 48px 20px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .process-section { padding: 48px 20px; }
+      .cta-banner { padding: 48px 20px; }
+      .cta-banner-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <span class="nav-logo-text" style="display:none;">PJ</span>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="digitalni-ucitel.html">Digitální učitel 2026</a></li>
+    <li><a href="digitalni-kancelar.html">Digitální kancelář</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Chci nabídku</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="tw-hero">
+  <div class="tw-hero-inner">
+    <div class="tw-price-tag">🌐 Cena na dotaz · Dle rozsahu projektu</div>
+    <h1>Moderní web,<br>který za vás <em>pracuje.</em></h1>
+    <p>Tvořím přehledné a funkční weby pro školy i firmy — s pomocí AI rychle, bez zbytečné složitosti. Výsledek je web, na který budete hrdí.</p>
+    <a href="kontakt.html" class="btn-primary">Chci nezávaznou konzultaci</a>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<div class="for-whom">
+  <div class="for-whom-inner">
+    <span>Pro koho:</span>
+    <span class="for-pill">🏫 Školy</span>
+    <span class="for-pill">🏢 Malé firmy & živnostníci</span>
+    <span class="for-pill">👤 Jednotlivci & freelanceři</span>
+  </div>
+</div>
+
+<!-- CO NABÍZÍM -->
+<section class="offer-section">
+  <span class="section-label">Co dostanete</span>
+  <h2>Web, který funguje<br>a vypadá skvěle</h2>
+
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-icon">⚡</div>
+      <div class="offer-title">Rychlá realizace</div>
+      <div class="offer-desc">S pomocí AI zkrátím dobu tvorby webu na minimum. Výsledek máte rychleji, bez kompromisů na kvalitě.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">📱</div>
+      <div class="offer-title">Responzivní design</div>
+      <div class="offer-desc">Web vypadá perfektně na mobilu, tabletu i počítači. Dnes je to základ, ne bonus.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🎯</div>
+      <div class="offer-title">Zaměřený na výsledek</div>
+      <div class="offer-desc">Web není jen vizitka — je to nástroj. Každá stránka má jasný cíl: oslovit, přesvědčit, kontaktovat.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🔍</div>
+      <div class="offer-title">SEO základy</div>
+      <div class="offer-desc">Správná struktura, titulky a meta popisky aby vás Google našel. Základní SEO je součástí každého webu.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">✏️</div>
+      <div class="offer-title">Snadná správa</div>
+      <div class="offer-desc">Naučím vás web samostatně spravovat. Nepotřebujete programátora na každou změnu textu.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon">🤝</div>
+      <div class="offer-title">Podpora po spuštění</div>
+      <div class="offer-desc">Jsem k dispozici i po předání webu. Pomůžu s úpravami, aktualizacemi nebo rozšířením.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section">
+  <div class="portfolio-inner">
+    <span class="section-label">Moje práce</span>
+    <h2>Weby, které<br>jsem vytvořil</h2>
+
+    <div class="portfolio-grid">
+
+      <a href="https://www.4bstudio.cz" target="_blank" class="portfolio-card">
+        <div class="portfolio-num">01</div>
+        <div class="portfolio-name">4B Studio</div>
+        <div class="portfolio-url">4bstudio.cz</div>
+        <div class="portfolio-desc">Web pro architektonické a projekční studio. WordPress, moderní galerie projektů, důraz na vizuál a profesionální prezentaci.</div>
+        <span class="portfolio-pill">Firemní web</span>
+      </a>
+
+      <a href="https://www.zsmnichovice.cz" target="_blank" class="portfolio-card">
+        <div class="portfolio-num">02</div>
+        <div class="portfolio-name">ZŠ Mnichovice</div>
+        <div class="portfolio-url">zsmnichovice.cz</div>
+        <div class="portfolio-desc">Web pro základní školu — přehledná navigace pro rodiče i žáky, aktuality, jídelníček a vše co škola potřebuje.</div>
+        <span class="portfolio-pill">Školní web</span>
+      </a>
+
+      <a href="https://pavlagarwoodova.com" target="_blank" class="portfolio-card">
+        <div class="portfolio-num">03</div>
+        <div class="portfolio-name">Pavla Garwoodová</div>
+        <div class="portfolio-url">pavlagarwoodova.com</div>
+        <div class="portfolio-desc">Úprava a modernizace osobního webu. Čistý design, přehledná struktura a důraz na osobní značku.</div>
+        <span class="portfolio-pill">Osobní web · Úprava</span>
+      </a>
+
+      <a href="https://www.iss-vysokenj.cz" target="_blank" class="portfolio-card">
+        <div class="portfolio-num">04</div>
+        <div class="portfolio-name">ISŠ Vysoké nad Jizerou</div>
+        <div class="portfolio-url">iss-vysokenj.cz</div>
+        <div class="portfolio-desc">Spolupráce na tvorbě nového školního webu pro střední školu. Moderní design, přehledná struktura a prezentace oborů.</div>
+        <span class="portfolio-pill">Školní web · Spolupráce</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <span class="section-label">Jak to funguje</span>
+  <h2>Od nápadu<br>ke spuštění</h2>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Konzultace zdarma</div>
+        <div class="step-desc">Zavoláme si nebo napíšeme — probereme co potřebujete, co se vám líbí a co ne. Žádné závazky.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Návrh a struktura</div>
+        <div class="step-desc">Připravím strukturu webu a ukázkový design. Odsouhlasíme obsah, barvy a celkové směřování.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Tvorba webu</div>
+        <div class="step-desc">Realizuji web s pomocí AI nástrojů — rychle a kvalitně. Průběžně vás informuji o postupu.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Spuštění a předání</div>
+        <div class="step-desc">Web spustíme na vaší doméně, nastavíme vše potřebné a naučím vás ho samostatně spravovat.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <div>
+      <h2>Potřebujete nový web<br>nebo <em>modernizaci stávajícího?</em></h2>
+      <p>Napište mi — konzultace je zdarma a bez závazků.</p>
+    </div>
+    <a href="kontakt.html" class="btn-primary">Napsat mi →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'">
+  </div>
+  <p>© 2026 Petr Janů · petrjanu.eu</p>
+  <div style="display:flex; gap:20px; flex-wrap:wrap;">
+    <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
+    <a href="digitalni-kancelar.html">Digitální kancelář</a>
+    <a href="tvorba-webu.html">Tvorba webů</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+</script>
+</body>
+</html>

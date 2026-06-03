@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Petr Janů — Získávám firmám zakázky pomocí krátkých videí. Video marketing specialist.">
-  <title>Petr Janů — Video marketing</title>
+  <meta name="description" content="Petr Janů — Pomáhám firmám a školám ovládnout digitální svět včetně umělé inteligence.">
+  <title>Petr Janů — Digitální specialista</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* ---- HERO ---- */
@@ -49,8 +49,8 @@
 
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 50px;
-      line-height: 1.08;
+      font-size: 46px;
+      line-height: 1.1;
       letter-spacing: -1.2px;
       color: var(--ink);
       margin-bottom: 16px;
@@ -59,17 +59,14 @@
     h1 em {
       font-style: italic;
       color: var(--accent);
-      font-size: 1.6em;
-      line-height: 0.85;
-      display: inline-block;
     }
 
     .hero-perex {
-      font-size: 16.5px;
+      font-size: 17px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 36px;
-      max-width: 440px;
+      max-width: 460px;
     }
 
     .cta-group {
@@ -146,43 +143,90 @@
       font-weight: 500;
     }
 
-    /* ---- INTRO STRIP ---- */
-    .intro-section {
+    /* ---- PILLARS ---- */
+    .pillars-section {
       background: var(--ink);
-      padding: 48px;
+      padding: 72px 48px;
     }
 
-    .intro-inner {
+    .pillars-inner {
       max-width: 1000px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
     }
 
-    .intro-heading {
+    .pillars-intro {
+      margin-bottom: 48px;
+    }
+
+    .pillars-intro h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: 28px;
+      font-size: 30px;
       color: #fff;
       line-height: 1.3;
       letter-spacing: -0.5px;
+      margin-bottom: 12px;
     }
 
-    .intro-heading em {
+    .pillars-intro h2 em {
       font-style: italic;
       color: var(--accent);
     }
 
-    .intro-text {
-      font-size: 15.5px;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.75;
+    .pillars-intro p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
     }
 
-    .intro-text strong {
-      color: rgba(255,255,255,0.9);
-      font-weight: 500;
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .pillar-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, transform .2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .pillar-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .pillar-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.3px;
     }
 
     /* ---- REFERENCES ---- */
@@ -300,12 +344,11 @@
         gap: 40px;
       }
 
-      h1 { font-size: 36px; }
-
+      h1 { font-size: 34px; }
       .hero-photo-wrap { max-width: 300px; margin: 0 auto; }
 
-      .intro-section { padding: 40px 20px; }
-      .intro-inner { grid-template-columns: 1fr; gap: 20px; }
+      .pillars-section { padding: 48px 20px; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 
       .ref-section { padding: 48px 20px; }
       .ref-grid { grid-template-columns: 1fr; }
@@ -313,6 +356,10 @@
 
       .cta-banner { padding: 48px 20px; }
       .cta-banner-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .pillars-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -329,6 +376,8 @@
   </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="digitalni-ucitel.html">Digitální učitel 2026</a></li>
+    <li><a href="digitalni-kancelar.html">Digitální kancelář</a></li>
+    <li><a href="tvorba-webu.html">Tvorba webů</a></li>
     <li><a href="kontakt.html">Kontakt</a></li>
     <li><a href="kontakt.html" class="nav-cta">Spolupráce</a></li>
   </ul>
@@ -337,16 +386,16 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Video marketing specialista</div>
-    <h1>Získávám<br>firmám<br><em>zakázky</em><br>pomocí videí.</h1>
+    <div class="hero-tag">Digitální specialista · Školy & Firmy</div>
+    <h1>Pomáhám školám<br>a firmám ovládnout<br><em>digitální svět.</em></h1>
     <p class="hero-perex">
-      Pomáhám firmám proměnit sociální sítě ve <strong>stabilní zdroj poptávek</strong> — bez zbytečného chaosu, tápání a vyhazování peněz za marketing.
+      Školím učitele, nastavuji firemní procesy, tvořím videa a weby — vše s jedním cílem: aby technologie pracovaly <strong>pro vás, ne proti vám</strong>.
     </p>
     <div class="cta-group">
       <a class="btn-primary" href="kontakt.html">
-        👉 Chci více zákazníků
+        👉 Chci bezplatnou konzultaci
       </a>
-      <span class="cta-sub">Bezplatná konzultace · bez závazků</span>
+      <span class="cta-sub">Bez závazků · Odpovím do 24 hodin</span>
     </div>
   </div>
 
@@ -361,13 +410,44 @@
   </div>
 </section>
 
-<!-- INTRO STRIP -->
-<section class="intro-section">
-  <div class="intro-inner">
-    <h2 class="intro-heading">Sociální sítě jako<br><em>stabilní zdroj</em><br>poptávek.</h2>
-    <p class="intro-text">
-      Pomáhám firmám proměnit sociální sítě ve <strong>stabilní zdroj poptávek</strong> — bez zbytečného chaosu, tápání a vyhazování peněz za marketing. Krátká videa jsou dnes nejefektivnější způsob, jak <strong>zaujmout, přesvědčit a získat zákazníka</strong>.
-    </p>
+<!-- PILLARS -->
+<section class="pillars-section">
+  <div class="pillars-inner">
+    <div class="pillars-intro">
+      <h2>Čtyři oblasti,<br>ve kterých <em>pomáhám</em></h2>
+      <p>Každý projekt je jiný — ale vždy jde o to, aby digitální nástroje přinášely skutečné výsledky.</p>
+    </div>
+    <div class="pillars-grid">
+
+      <a href="digitalni-ucitel.html" class="pillar-card">
+        <div class="pillar-icon">🎓</div>
+        <div class="pillar-title">Digitální učitel 2026</div>
+        <div class="pillar-desc">Workshopy pro učitelské sbory — Office 365, video, AI a moderní komunikace školy.</div>
+        <span class="pillar-link">Zjistit více →</span>
+      </a>
+
+      <a href="digitalni-kancelar.html" class="pillar-card">
+        <div class="pillar-icon">💼</div>
+        <div class="pillar-title">Digitální kancelář s AI</div>
+        <div class="pillar-desc">Optimalizace firemních procesů přes Office 365 a Copilot — méně chaosu, více výsledků.</div>
+        <span class="pillar-link">Zjistit více →</span>
+      </a>
+
+      <a href="kontakt.html" class="pillar-card">
+        <div class="pillar-icon">🎬</div>
+        <div class="pillar-title">Video marketing</div>
+        <div class="pillar-desc">Krátká videa pro sociální sítě, která přitahují zákazníky a budují značku.</div>
+        <span class="pillar-link">Napsat mi →</span>
+      </a>
+
+      <a href="tvorba-webu.html" class="pillar-card">
+        <div class="pillar-icon">🌐</div>
+        <div class="pillar-title">Tvorba webů</div>
+        <div class="pillar-desc">Moderní weby s pomocí AI — rychle, přehledně a funkčně. Pro školy i firmy.</div>
+        <span class="pillar-link">Zjistit více →</span>
+      </a>
+
+    </div>
   </div>
 </section>
 
@@ -406,9 +486,10 @@
 <!-- CTA BANNER -->
 <section class="cta-banner">
   <div class="cta-banner-inner">
-    <h2>Jste škola nebo firma?<br>Mám pro vás <em>konkrétní řešení.</em></h2>
+    <h2>Škola nebo firma?<br>Mám pro vás <em>konkrétní řešení.</em></h2>
     <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
       <a href="digitalni-ucitel.html" class="btn-primary">Digitální učitel 2026</a>
+      <a href="digitalni-kancelar.html" class="btn-outline">Digitální kancelář</a>
       <a href="kontakt.html" class="btn-outline">Napište mi</a>
     </div>
   </div>
@@ -417,11 +498,12 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="Logo-pj.png" alt="Petr Janů">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'">
   </div>
   <p>© 2026 Petr Janů · petrjanu.eu</p>
-  <div style="display:flex; gap:20px;">
+  <div style="display:flex; gap:20px; flex-wrap:wrap;">
     <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
+    <a href="digitalni-kancelar.html">Digitální kancelář</a>
     <a href="kontakt.html">Kontakt</a>
   </div>
 </footer>
@@ -436,12 +518,13 @@
     var redirect = sessionStorage.getItem('redirect');
     if (redirect && redirect !== '/') {
       sessionStorage.removeItem('redirect');
-      // Mapování cest na soubory
       var map = {
         '/kontakt': 'kontakt.html',
         '/kontakt.html': 'kontakt.html',
         '/digitalni-ucitel': 'digitalni-ucitel.html',
         '/digitalni-ucitel.html': 'digitalni-ucitel.html',
+        '/digitalni-kancelar': 'digitalni-kancelar.html',
+        '/digitalni-kancelar.html': 'digitalni-kancelar.html',
       };
       var target = map[redirect] || map[redirect.replace(/\/$/, '')];
       if (target) window.location.replace('/' + target);
