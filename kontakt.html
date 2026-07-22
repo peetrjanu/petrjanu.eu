@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Kontakt — Petr Janů. Napište mi a domluvíme bezplatnou konzultaci.">
   <title>Kontakt — Petr Janů</title>
+
+  <!-- Open Graph — náhled při sdílení odkazu -->
+  <meta property="og:title" content="Kontakt — Petr Janů">
+  <meta property="og:description" content="Video a marketing pro reality a firmy. Napište mi a domluvíme bezplatnou konzultaci.">
+  <meta property="og:image" content="https://petrjanu.eu/og-banner.jpg">
+  <meta property="og:url" content="https://petrjanu.eu/kontakt.html">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="style.css">
   <style>
-
     .contact-wrap {
       max-width: 1000px;
       margin: 0 auto;
@@ -18,12 +24,11 @@
       align-items: start;
     }
 
-    /* ---- LEFT ---- */
     .contact-left .section-label { margin-bottom: 10px; }
 
     .contact-left h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 42px;
+      font-size: 46px;
       color: var(--ink);
       letter-spacing: -1px;
       line-height: 1.1;
@@ -35,53 +40,13 @@
       color: var(--accent);
     }
 
-    .contact-left p {
-      font-size: 15.5px;
+    .contact-left .lead {
+      font-size: 16.5px;
       color: var(--muted);
       line-height: 1.75;
       margin-bottom: 36px;
     }
 
-    /* Signature */
-    .signature-block {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-    }
-
-    .signature-block img.sig-photo {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      background: var(--bg2);
-    }
-
-    .sig-text strong {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-
-    .sig-text span {
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-
-    .sig-sign {
-      height: 40px;
-      width: auto;
-      display: block;
-      margin-top: 8px;
-      opacity: 0.8;
-    }
-
-    /* Info items */
     .contact-info {
       display: flex;
       flex-direction: column;
@@ -93,20 +58,20 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 14.5px;
+      font-size: 15px;
       color: var(--ink);
     }
 
     .info-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       background: var(--bg2);
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 18px;
       flex-shrink: 0;
     }
 
@@ -114,114 +79,114 @@
       color: var(--ink);
       text-decoration: none;
       transition: color .2s;
+      font-weight: 500;
     }
 
     .info-item a:hover { color: var(--accent); }
 
-    /* ---- FORM ---- */
-    .contact-form-wrap {
+    .signature-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+
+    .sig-photo-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--bg2);
+      flex-shrink: 0;
+    }
+
+    .sig-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 65% center;
+    }
+
+    .sig-text strong {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .sig-text span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 36px 32px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
     }
 
-    .contact-form-wrap h2 {
+    .contact-card h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: 22px;
+      font-size: 26px;
       color: var(--ink);
-      margin-bottom: 6px;
-      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      letter-spacing: -0.4px;
     }
 
-    .contact-form-wrap p {
-      font-size: 13.5px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: 0.3px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--border-strong);
-      border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
+    .contact-card .card-sub {
       font-size: 14px;
-      color: var(--ink);
-      background: var(--bg);
-      transition: border-color .2s, box-shadow .2s;
-      outline: none;
+      color: var(--muted);
+      margin-bottom: 32px;
     }
 
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(232,74,39,0.08);
+    .card-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 110px;
-      line-height: 1.6;
+    .card-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    .btn-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .form-submit {
+    .btn-block .btn-primary,
+    .btn-block .btn-outline {
       width: 100%;
-      margin-top: 8px;
       justify-content: center;
     }
 
     .form-note {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--light);
       text-align: center;
-      margin-top: 12px;
+      margin-top: 20px;
     }
 
-    /* Success message */
-    .form-success {
-      display: none;
-      background: #f0fdf4;
-      border: 1px solid #86efac;
-      border-radius: 8px;
-      padding: 16px;
-      text-align: center;
-      color: #166534;
-      font-size: 14px;
-      font-weight: 500;
-      margin-top: 16px;
-    }
-
-    /* ---- RESPONSIVE ---- */
     @media (max-width: 768px) {
       .contact-wrap {
         grid-template-columns: 1fr;
         padding: 48px 20px;
         gap: 40px;
       }
-
-      .contact-left h1 { font-size: 30px; }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form-wrap { padding: 24px 20px; }
+      .contact-left h1 { font-size: 32px; }
+      .contact-card { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -237,11 +202,10 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="digitalni-ucitel.html">Digitální učitel 2026</a></li>
-    <li><a href="digitalni-kancelar.html">Digitální kancelář</a></li>
-    <li><a href="tvorba-webu.html">Tvorba webů</a></li>
+    <li><a href="index.html#sluzby">Služby</a></li>
+    <li><a href="index.html#reference">Reference</a></li>
     <li><a href="kontakt.html" class="active">Kontakt</a></li>
-    <li><a href="kontakt.html" class="nav-cta">Napište mi</a></li>
+    <li><a href="mailto:janu.petr@icloud.com" class="nav-cta">Napište mi</a></li>
   </ul>
 </nav>
 
@@ -252,12 +216,12 @@
   <div class="contact-left">
     <span class="section-label">Kontakt</span>
     <h1>Pojďme<br>to <em>rozjet</em><br>společně.</h1>
-    <p>Napište mi a do 24 hodin se ozvu zpátky. Rád si promluvím o tom, jak může video marketing pomoci vaší firmě nebo škole.</p>
+    <p class="lead">Napište mi a do 24 hodin se ozvu zpátky. Rád si promluvím o tom, jak může video a marketing pomoci vaší firmě nebo projektu.</p>
 
     <div class="contact-info">
       <div class="info-item">
         <div class="info-icon">📧</div>
-        <a href="/cdn-cgi/l/email-protection#156570616755657061677f747b603b7060"><span class="__cf_email__" data-cfemail="28584d5c5a68584d5c5a4249465d064d5d">[email&#160;protected]</span></a>
+        <a href="mailto:janu.petr@icloud.com">janu.petr@icloud.com</a>
       </div>
       <div class="info-item">
         <div class="info-icon">📱</div>
@@ -265,26 +229,29 @@
       </div>
       <div class="info-item">
         <div class="info-icon">📍</div>
-        <span>Česká republika</span>
+        <span>Vrchlabí · Česká republika</span>
       </div>
     </div>
 
     <div class="signature-block">
-      <img class="sig-photo" src="foto.png" alt="Petr Janů">
+      <div class="sig-photo-wrap">
+        <img src="foto-hero.jpg" alt="Petr Janů">
+      </div>
       <div class="sig-text">
         <strong>Petr Janů</strong>
-        <span>Video marketing specialista</span>
-        <img class="sig-sign" src="podpis.png" alt="Podpis">
+        <span>Video a marketing pro reality a firmy</span>
       </div>
     </div>
   </div>
 
-  <!-- CONTACT CARD -->
-  <div class="contact-form-wrap">
-    <h2>Ozvěte se mi</h2>
-    <p>Odpovím do 24 hodin · Bezplatná konzultace</p>
+  <!-- RIGHT CARD -->
+  <div class="contact-card">
+    <h2>Napište mi</h2>
+    <p class="card-sub">Bezplatná konzultace · Odpovím do 24 hodin</p>
 
-    <div class="contact-info" style="margin-bottom: 32px;">
+    <span class="card-label">Preferovaný kontakt</span>
+
+    <div class="contact-info" style="margin-bottom: 0;">
       <div class="info-item">
         <div class="info-icon">📧</div>
         <a href="mailto:janu.petr@icloud.com">janu.petr@icloud.com</a>
@@ -295,14 +262,20 @@
       </div>
     </div>
 
-    <a href="mailto:janu.petr@icloud.com" class="btn-primary" style="width:100%; justify-content:center;">
-      ✉️ Napsat e-mail
-    </a>
-    <a href="tel:+420732349429" class="btn-outline" style="width:100%; justify-content:center; margin-top:12px;">
-      📞 Zavolat
-    </a>
+    <hr class="card-divider">
 
-    <p class="form-note" style="margin-top: 20px;">Preferuji e-mail — odpovím do 24 hodin.</p>
+    <span class="card-label">Kontaktovat přímo</span>
+
+    <div class="btn-block">
+      <a href="mailto:janu.petr@icloud.com" class="btn-primary">
+        ✉️ Napsat e-mail
+      </a>
+      <a href="tel:+420732349429" class="btn-outline">
+        📞 Zavolat — +420 732 349 429
+      </a>
+    </div>
+
+    <p class="form-note">Vaše údaje jsou v bezpečí a nebudou sdíleny třetím stranám.</p>
   </div>
 
 </div>
@@ -310,13 +283,12 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'">
+    <img src="Logo-pj.png" alt="Petr Janů">
   </div>
   <p>© 2026 Petr Janů · petrjanu.eu</p>
-  <div style="display:flex; gap:20px; flex-wrap:wrap;">
-    <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
-    <a href="digitalni-kancelar.html">Digitální kancelář</a>
-    <a href="tvorba-webu.html">Tvorba webů</a>
+  <div style="display:flex; gap:20px;">
+    <a href="index.html#sluzby">Služby</a>
+    <a href="index.html#reference">Reference</a>
     <a href="kontakt.html">Kontakt</a>
   </div>
 </footer>
@@ -325,6 +297,6 @@
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
-
-  function handleSubmit(e) {
-    // If using Formspree, remove this function and let form
+</script>
+</body>
+</html>
