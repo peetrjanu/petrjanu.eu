@@ -2,6 +2,672 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
+  <!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3505CZ2F2P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3505CZ2F2P');
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digitální kancelář s AI — Petr Janů. Optimalizace firemních procesů přes Office 365 a Copilot.">
+  <title>Digitální kancelář s AI — Petr Janů</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ---- HERO ---- */
+    .dk-hero {
+      background: var(--ink);
+      padding: 72px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dk-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,74,39,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .dk-hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .dk-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 46px;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .dk-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .dk-hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .dk-price-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,74,39,0.15);
+      border: 1px solid rgba(232,74,39,0.3);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 24px;
+    }
+
+    .dk-hero-icon {
+      font-size: 120px;
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    /* ---- FOR WHOM ---- */
+    .for-whom {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 48px;
+    }
+
+    .for-whom-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .for-whom span {
+      font-size: 13.5px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .for-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ---- MODULES ---- */
+    .modules-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+
+    .modules-section > .section-label { margin-bottom: 8px; }
+
+    .modules-section > h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    .module-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: var(--card);
+    }
+
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 28px;
+      background: var(--card);
+      cursor: pointer;
+    }
+
+    .module-letter {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    .mod-a .module-letter { background: rgba(232,74,39,0.1); color: var(--accent); }
+    .mod-b .module-letter { background: rgba(26,26,24,0.08); color: var(--ink); }
+    .mod-c .module-letter { background: rgba(232,74,39,0.06); color: var(--accent); }
+
+    .module-meta { flex: 1; }
+
+    .module-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .module-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .module-toggle {
+      font-size: 20px;
+      color: var(--light);
+      transition: transform .3s;
+      user-select: none;
+    }
+
+    .module-body {
+      padding: 0 28px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .module-body ul {
+      list-style: none;
+      margin: 20px 0 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .module-body ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .module-body ul li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .module-goal {
+      background: var(--bg2);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: var(--ink);
+      font-weight: 500;
+      border-left: 3px solid var(--accent);
+    }
+
+    .module-goal span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ---- RESULTS ---- */
+    .results-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 48px;
+    }
+
+    .results-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .results-inner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+      margin-bottom: 28px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .result-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14.5px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .result-check {
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .result-check::after {
+      content: '✓';
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ---- PRICING ---- */
+    .pricing-section {
+      background: var(--ink);
+      padding: 72px 48px;
+    }
+
+    .pricing-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-inner > .section-label { color: var(--accent); }
+
+    .pricing-inner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 36px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .price-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .price-card:hover {
+      border-color: rgba(232,74,39,0.4);
+      transform: translateY(-3px);
+    }
+
+    .price-card.featured {
+      background: rgba(232,74,39,0.1);
+      border-color: rgba(232,74,39,0.4);
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 14px;
+    }
+
+    .price-tier {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+
+    .price-amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+
+    .price-currency {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 4px;
+    }
+
+    .price-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 20px 0;
+    }
+
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .price-features li {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-cta {
+      text-align: center;
+    }
+
+    .pricing-cta p {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .dk-hero { padding: 48px 20px; }
+      .dk-hero-inner { grid-template-columns: 1fr; }
+      .dk-hero h1 { font-size: 32px; }
+      .dk-hero-icon { display: none; }
+      .for-whom { padding: 24px 20px; }
+      .modules-section { padding: 48px 20px; }
+      .module-body ul { grid-template-columns: 1fr; }
+      .results-section { padding: 48px 20px; }
+      .results-grid { grid-template-columns: 1fr; }
+      .pricing-section { padding: 48px 20px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <span class="nav-logo-text" style="display:none;">PJ</span>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="digitalni-ucitel.html">Digitální učitel 2026</a></li>
+    <li><a href="digitalni-kancelar.html" class="active">Digitální kancelář</a></li>
+    <li><a href="tvorba-webu.html">Tvorba webů</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Chci nabídku</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="dk-hero">
+  <div class="dk-hero-inner">
+    <div>
+      <div class="dk-price-tag">💼 Na míru · Cena po konzultaci</div>
+      <h1>Digitální kancelář<br><em>s umělou inteligencí</em></h1>
+      <p>Systém pro firmy, které chtějí ovládnout Office 365, Copilot a AI nástroje — a přestat ztrácet čas neefektivními procesy.</p>
+      <a href="kontakt.html" class="btn-primary">Chci nabídku pro firmu</a>
+    </div>
+    <div class="dk-hero-icon">💼</div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<div class="for-whom">
+  <div class="for-whom-inner">
+    <span>Pro koho:</span>
+    <span class="for-pill">🏢 Malé a střední firmy</span>
+    <span class="for-pill">👔 Manažeři a majitelé</span>
+    <span class="for-pill">🗂️ Office manažeři</span>
+  </div>
+</div>
+
+<!-- MODULES -->
+<section class="modules-section">
+  <span class="section-label">Obsah programu</span>
+  <h2>3 moduly, které firmu<br>posunou vpřed</h2>
+
+  <!-- Modul A -->
+  <div class="module-card mod-a">
+    <div class="module-header" onclick="toggleModule('modA', this)">
+      <div class="module-letter">A</div>
+      <div class="module-meta">
+        <div class="module-title">Modul A — Digitální workflow firmy</div>
+        <div class="module-sub">Office 365, Teams, OneDrive, efektivita</div>
+      </div>
+      <div class="module-toggle" id="toggleModA">↓</div>
+    </div>
+    <div class="module-body" id="modA">
+      <ul>
+        <li>Používat Teams pro komunikaci a porady</li>
+        <li>Sdílet a archivovat dokumenty v OneDrive</li>
+        <li>Efektivně pracovat ve Wordu, Excelu, PowerPointu</li>
+        <li>Digitální organizace úkolů a projektů</li>
+        <li>Automatizace opakujících se činností</li>
+        <li>Bezpečná práce s firemními daty</li>
+      </ul>
+      <div class="module-goal">
+        🎯 Cíl: <span>Firma má jednotný digitální systém, který šetří čas a snižuje chaos v komunikaci.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modul B -->
+  <div class="module-card mod-b">
+    <div class="module-header" onclick="toggleModule('modB', this)">
+      <div class="module-letter">B</div>
+      <div class="module-meta">
+        <div class="module-title">Modul B — Copilot a AI v praxi</div>
+        <div class="module-sub">Microsoft Copilot, ChatGPT, AI nástroje pro firmy</div>
+      </div>
+      <div class="module-toggle" id="toggleModB">↓</div>
+    </div>
+    <div class="module-body" id="modB">
+      <ul>
+        <li>Copilot v Outlooku, Teams a Word</li>
+        <li>Tvorba dokumentů a e-mailů pomocí AI</li>
+        <li>Analýza dat v Excelu s Copilotem</li>
+        <li>ChatGPT pro firemní komunikaci a obsah</li>
+        <li>AI pro tvorbu prezentací a reportů</li>
+        <li>Bezpečné používání AI ve firmě</li>
+      </ul>
+      <div class="module-goal">
+        🎯 Cíl: <span>Zaměstnanci umí používat AI nástroje a šetří hodiny práce každý týden.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modul C -->
+  <div class="module-card mod-c">
+    <div class="module-header" onclick="toggleModule('modC', this)">
+      <div class="module-letter">C</div>
+      <div class="module-meta">
+        <div class="module-title">Modul C — Digitální prezentace firmy</div>
+        <div class="module-sub">Web, sociální sítě, digitální marketing</div>
+      </div>
+      <div class="module-toggle" id="toggleModC">↓</div>
+    </div>
+    <div class="module-body" id="modC">
+      <ul>
+        <li>Jak má vypadat moderní web firmy</li>
+        <li>Základy digitálního marketingu</li>
+        <li>Sociální sítě pro B2B i B2C</li>
+        <li>Krátká videa a obsah pro zákazníky</li>
+        <li>Google profil a online reputace</li>
+        <li>Měření výsledků a analytika</li>
+      </ul>
+      <div class="module-goal">
+        🎯 Cíl: <span>Firma působí online profesionálně a ví jak oslovit nové zákazníky digitálně.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section">
+  <div class="results-inner">
+    <span class="section-label">Výsledky</span>
+    <h2>📈 Co firma získá</h2>
+    <div class="results-grid">
+      <div class="result-item"><div class="result-check"></div>Zaměstnanci pracují s digitálními nástroji bez obav</div>
+      <div class="result-item"><div class="result-check"></div>Firma šetří hodiny práce týdně díky AI</div>
+      <div class="result-item"><div class="result-check"></div>Lepší interní komunikace přes Teams</div>
+      <div class="result-item"><div class="result-check"></div>Dokumenty a data vždy dostupné a bezpečné</div>
+      <div class="result-item"><div class="result-check"></div>Firma působí online moderně a profesionálně</div>
+      <div class="result-item"><div class="result-check"></div>Majitel řeší méně problémů s IT a komunikací</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="pricing-inner">
+    <span class="section-label">Cenové balíčky</span>
+    <h2>Vyberte balíček<br>pro vaši firmu</h2>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-tier">Basic</div>
+        <div class="price-amount">Na dotaz</div>
+        <div class="price-note">Cena závisí na velikosti firmy</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Modul A</li>
+          <li>4h workshop</li>
+          <li>Základní šablony a materiály</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Nejoblíbenější</div>
+        <div class="price-tier">Standard</div>
+        <div class="price-amount">Na dotaz</div>
+        <div class="price-note">Cena závisí na velikosti firmy</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Modul A + B</li>
+          <li>6h workshop</li>
+          <li>AI šablony, manuály a checklisty</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">Na dotaz</div>
+        <div class="price-note">Cena závisí na velikosti firmy</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Modul A + B + C</li>
+          <li>8h workshop</li>
+          <li>Kompletní materiály</li>
+          <li>Konzultace po 30 dnech</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="pricing-cta">
+      <a href="kontakt.html" class="btn-primary" style="margin: 0 auto;">Chci nabídku pro firmu →</a>
+      <p>Ceny jsou bez DPH · Program přizpůsobím potřebám vaší firmy</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'">
+  </div>
+  <p>© 2026 Petr Janů · petrjanu.eu</p>
+  <div style="display:flex; gap:20px; flex-wrap:wrap;">
+    <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
+    <a href="digitalni-kancelar.html">Digitální kancelář</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function toggleModule(id, header) {
+    const body = document.getElementById(id);
+    const toggleId = 'toggle' + id.charAt(0).toUpperCase() + id.slice(1);
+    const toggle = document.getElementById(toggleId);
+    const isOpen = body.style.display !== 'none' && body.style.display !== '';
+    if (isOpen) {
+      body.style.display = 'none';
+      toggle.textContent = '↓';
+    } else {
+      body.style.display = 'block';
+      toggle.textContent = '↑';
+    }
+  }
+
+  document.querySelectorAll('.module-body').forEach(b => b.style.display = 'block');
+</script>
+</body>
+</html>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Kontakt — Petr Janů. Napište mi a domluvíme bezplatnou konzultaci.">
   <title>Kontakt — Petr Janů</title>
