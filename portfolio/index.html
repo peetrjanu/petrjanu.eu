@@ -20,7 +20,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
-  try{ if(localStorage.getItem('mpj_consent')==='yes'){ gtag('consent','update',{analytics_storage:'granted'}); } }catch(e){}
+  try{ if(localStorage.getItem('pj-cookie-consent')==='granted'){ gtag('consent','update',{analytics_storage:'granted'}); } }catch(e){}
   gtag('js', new Date()); gtag('config','G-3505CZ2F2P');
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3505CZ2F2P"></script>
@@ -677,10 +677,10 @@ document.querySelectorAll('.js-mail').forEach(a => { a.href = 'mailto:' + CONFIG
 
 /* ---------- consent ---------- */
 const consent = document.getElementById('consent');
-let stored = null; try{ stored = localStorage.getItem('mpj_consent'); }catch(e){}
+let stored = null; try{ stored = localStorage.getItem('pj-cookie-consent'); }catch(e){}
 if (!stored) setTimeout(() => consent.classList.add('show'), 1500);
 function setConsent(v){
-  try{ localStorage.setItem('mpj_consent', v); }catch(e){}
+  try{ localStorage.setItem('pj-cookie-consent', v === 'yes' ? 'granted' : 'denied'); }catch(e){}
   if (v === 'yes') gtag('consent','update',{analytics_storage:'granted'});
   else gtag('consent','update',{analytics_storage:'denied'});
   consent.classList.remove('show');
