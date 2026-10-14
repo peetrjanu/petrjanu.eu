@@ -7,12 +7,12 @@
   <script src="cookies.js" defer></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Petr Janů — Co je vidět, to se prodává. Video a marketing pro reality a firmy. Weby, sociální sítě, AI automatizace.">
-  <title>Petr Janů — Video a marketing pro reality a firmy</title>
+  <meta name="description" content="Petr Janů — Co je vidět, to se prodává. Digitální marketing, video a AI automatizace pro firmy. Strategie, reklama, sociální sítě, weby.">
+  <title>Petr Janů — Digitální marketing, video a AI automatizace</title>
 
   <!-- Open Graph — náhled při sdílení odkazu -->
   <meta property="og:title" content="Petr Janů — Co je vidět, to se prodává.">
-  <meta property="og:description" content="Video a marketing pro reality a firmy. Weby, sociální sítě, AI automatizace.">
+  <meta property="og:description" content="Digitální marketing, video a AI automatizace pro firmy. Strategie, reklama, sociální sítě, weby.">
   <meta property="og:image" content="https://petrjanu.eu/og-banner.jpg">
   <meta property="og:url" content="https://petrjanu.eu">
   <meta property="og:type" content="website">
@@ -37,11 +37,12 @@
       color: var(--accent);
       font-size: 11.5px;
       font-weight: 600;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.3px;
       padding: 5px 13px;
       border-radius: 20px;
       margin-bottom: 22px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .hero-tag::before {
@@ -132,7 +133,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 65% center;
+      object-position: center 30%;
       display: block;
     }
 
@@ -436,6 +437,7 @@
       }
 
       h1 { font-size: 38px; }
+      .hero-tag { white-space: normal; line-height: 1.5; }
 
       .hero-photo-wrap { max-width: 320px; margin: 0 auto; }
 
@@ -469,38 +471,38 @@
   </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#sluzby">Služby</a></li>
-    <!-- TODO zítra: až vybereme videa, odkomentovat -->
-    <!-- <li><a href="#ukazky">Ukázky práce</a></li> -->
+    <li><a href="portfolio/">Portfolio</a></li>
     <li><a href="#reference">Reference</a></li>
     <li><a href="kontakt.html">Kontakt</a></li>
-    <li><a href="kontakt.html" class="nav-cta">Bezplatná konzultace</a></li>
+    <li><a href="https://calendar.app.google/1KNnsVVf19nxUELM6" target="_blank" rel="noopener" class="nav-cta">15 min hovor</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Video & marketing · Sociální sítě · Weby</div>
+    <div class="hero-tag">Digitální marketing · AI a automatizace · Učitel informatiky na SŠ</div>
     <h1>Co je vidět,<br>to se <em>prodává.</em></h1>
     <p class="hero-perex">
-      Pomáhám firmám a podnikatelům <strong>být vidět a prodávat</strong>. Video a marketing pro reality a firmy — od nápadu přes natáčení až po kampaň, která vydělává.
+      Pomáhám firmám <strong>získávat zákazníky online</strong> — strategií, reklamou a videem, které umím změřit. Rutinu za vás převezme automatizace.
     </p>
     <div class="hero-chips">
+      <span class="hero-chip">📈 Strategie a reklama</span>
       <span class="hero-chip">🎬 Video od A do Z</span>
-      <span class="hero-chip">🤖 AI & automatizace firemních procesů</span>
-      <span class="hero-chip">🎓 Učitel IKT na SŠ</span>
+      <span class="hero-chip">🤖 AI a automatizace</span>
     </div>
     <div class="cta-group">
-      <a class="btn-primary" href="kontakt.html">
-        Chci bezplatnou konzultaci
-      </a>
-      <span class="cta-sub">Odpovím do 24 hodin · bez závazků</span>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <a class="btn-primary" href="https://calendar.app.google/1KNnsVVf19nxUELM6" target="_blank" rel="noopener">Chci 15minutový hovor</a>
+        <a class="btn-outline" href="portfolio/">Prohlédnout portfolio →</a>
+      </div>
+      <span class="cta-sub">Zdarma · 15 minut · bez závazků</span>
     </div>
   </div>
 
   <div class="hero-visual">
     <div class="hero-photo-wrap">
-      <img src="foto-hero.jpg" alt="Petr Janů — video marketing specialista">
+      <img src="portfolio/foto.jpg" alt="Petr Janů — specialista na digitální marketing">
     </div>
     <div class="hero-badge">
       <div class="badge-dot"></div>
@@ -519,12 +521,12 @@
         <div class="number-label">objednávek z jediného organického příspěvku — za dva večery</div>
       </div>
       <div class="number-item">
-        <div class="number-value">27×</div>
+        <div class="number-value">28×</div>
         <div class="number-label">větší dosah díky placené propagaci: z 5 400 na 150 000 zhlédnutí</div>
       </div>
       <div class="number-item">
-        <div class="number-value">A–Z</div>
-        <div class="number-label">kompletní služba pod jednou střechou — od konceptu po vyhodnocení</div>
+        <div class="number-value">0,25 h</div>
+        <div class="number-label">místo 1,5 h na jeden marketingový výstup — díky automatizaci</div>
       </div>
     </div>
   </div>
@@ -537,6 +539,11 @@
 
   <div class="services-grid">
     <div class="service-card highlight">
+      <span class="service-icon">🧭</span>
+      <div class="service-title">Marketingová strategie</div>
+      <div class="service-desc">Sepsaný plán: komu, o čem, kudy a za kolik. Rozpočet z cílových tržeb a 2–4 čísla, podle kterých poznáte, že marketing funguje.</div>
+    </div>
+    <div class="service-card">
       <span class="service-icon">🎬</span>
       <div class="service-title">Video od A do Z</div>
       <div class="service-desc">Koncept, natáčení vlastní technikou, střih a krátké formáty pro sociální sítě. Videa, která prodávají — pro firmy i reality.</div>
@@ -544,17 +551,12 @@
     <div class="service-card">
       <span class="service-icon">📱</span>
       <div class="service-title">Správa sociálních sítí</div>
-      <div class="service-desc">Strategie, posty, reels, publikace a community management. Sítě jako stabilní zdroj poptávek, ne povinnost.</div>
+      <div class="service-desc">Obsah, grafika, reels, publikace a komunita. Sítě jako stabilní zdroj poptávek, ne povinnost.</div>
     </div>
     <div class="service-card">
       <span class="service-icon">💻</span>
       <div class="service-title">Weby & landing pages</div>
       <div class="service-desc">Moderní web nebo landing page, která návštěvníka dovede k poptávce. Rychle a bez zbytečných nákladů.</div>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🎨</span>
-      <div class="service-title">Grafika & vizuál</div>
-      <div class="service-desc">Grafika pro sítě i reklamu, úprava fotek a jednotný vizuální styl, který si lidé zapamatují.</div>
     </div>
     <div class="service-card">
       <span class="service-icon">📈</span>
@@ -569,25 +571,17 @@
   </div>
 </section>
 
-<!-- PORTFOLIO — TODO zítra: doplnit vybraná videa a odkomentovat
+<!-- PORTFOLIO — odkaz na petrjanu.eu/portfolio -->
 <section class="portfolio-section" id="ukazky">
-  <div class="portfolio-inner">
-    <span class="section-label">Ukázky práce</span>
-    <h2>Podívejte se, co točím</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Ukázka 1" allowfullscreen></iframe>
-      </div>
-      <div class="portfolio-item">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Ukázka 2" allowfullscreen></iframe>
-      </div>
-      <div class="portfolio-item">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Ukázka 3" allowfullscreen></iframe>
-      </div>
+  <div class="portfolio-inner" style="display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+    <div>
+      <span class="section-label">Ukázky práce</span>
+      <h2 style="margin-bottom:12px; line-height:1.2;">Videa, kampaně a automatizace,<br>které jsem postavil</h2>
+      <p style="color:var(--muted); max-width:520px; line-height:1.7;">Realitní videa, obsah pro outdoorový e-shop a změřená case study automatizace. Plus jak spolupráce probíhá krok za krokem.</p>
     </div>
+    <a href="portfolio/" class="btn-primary">Prohlédnout portfolio →</a>
   </div>
 </section>
--->
 
 <!-- REFERENCES -->
 <section class="ref-section" id="reference">
@@ -632,7 +626,7 @@
   <div class="cta-banner-inner">
     <h2>Máte produkt nebo projekt,<br>který si zaslouží <em>být vidět?</em></h2>
     <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-      <a href="kontakt.html" class="btn-primary">Chci bezplatnou konzultaci</a>
+      <a href="https://calendar.app.google/1KNnsVVf19nxUELM6" target="_blank" rel="noopener" class="btn-primary">Chci 15minutový hovor</a>
       <a href="tel:+420732349429" class="btn-outline">📞 +420 732 349 429</a>
     </div>
   </div>
