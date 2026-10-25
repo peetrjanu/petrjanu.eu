@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Šafář — obsahový plán</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FA; --surface:#FFFFFF; --surface-2:#E8EFF7; --fg:#15223A; --fg-muted:#56687F;
+  --line:#CFDCE8; --navy:#1E2D4F; --navy-ink:#FFFFFF; --sky:#4A9AD4; --accent:#C9284D;
+  --c-archiv:#6E93B5; --c-pripravy:#35617F; --c-kampan:#C9284D;
+  --c-odpovedi:#4A9AD4; --c-lide:#1E2D4F; --c-pokrok:#2E7D7B;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px 80px}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:.01em;margin:0}
+h2{font-size:30px;font-weight:700;margin:52px 0 6px}
+h3{font-size:22px;font-weight:600;margin:28px 0 8px}
+p{margin:0 0 12px}
+a{color:var(--navy)}
+.lede{color:var(--fg-muted);max-width:68ch;margin-bottom:18px}
+
+/* hlavicka */
+header{background:var(--navy);color:var(--navy-ink);padding:36px 0 30px;margin-bottom:8px}
+header .wrap{padding-bottom:0}
+header h1{font-size:clamp(32px,5.4vw,50px);line-height:1.02;font-weight:700}
+header .sub{font-family:var(--display);font-size:clamp(17px,2.4vw,22px);color:#AFC6DE;margin-top:6px;font-weight:500}
+header .meta{margin-top:18px;font-size:14.5px;color:#C7D7E8;display:flex;flex-wrap:wrap;gap:8px 22px}
+header a{color:#fff}
+
+/* karty a boxy */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.note{border-left:4px solid var(--accent);background:#FBEAEE;border-radius:0 8px 8px 0;padding:14px 16px;margin:16px 0}
+.note strong{color:var(--accent)}
+.ok{border-left-color:#2E7D7B;background:#E6F2F1}
+.ok strong{color:#2E7D7B}
+
+/* tabulky */
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:15.5px}
+th{background:var(--surface-2);text-align:left;font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.02em;padding:9px 12px;border-bottom:1px solid var(--line)}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* stitky */
+.pill{display:inline-block;font-family:var(--display);font-size:13.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#fff;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.p-archiv{background:var(--c-archiv)} .p-pripravy{background:var(--c-pripravy)}
+.p-kampan{background:var(--c-kampan)} .p-odpovedi{background:var(--c-odpovedi)}
+.p-lide{background:var(--c-lide)} .p-pokrok{background:var(--c-pokrok)}
+.tag{display:inline-block;font-size:13px;color:var(--fg-muted);border:1px solid var(--line);border-radius:999px;padding:1px 9px;background:var(--surface)}
+
+/* paleta */
+.sw{display:flex;align-items:center;gap:10px;padding:8px 0}
+.chip{width:34px;height:34px;border-radius:7px;border:1px solid rgba(0,0,0,.12);flex:none}
+.hex{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;color:var(--fg-muted)}
+
+/* mockupy sablon */
+.mock{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;aspect-ratio:1/1;position:relative;overflow:hidden;margin-bottom:10px}
+.mock .ph{position:absolute;inset:0;background:
+  linear-gradient(160deg,#C9DBEA 0%,#9FBFD8 48%,#E6EEF5 48.4%,#F2F7FB 100%)}
+.mock .bar{position:absolute;left:0;right:0;bottom:0;background:var(--navy);color:#fff;padding:9px 12px;font-family:var(--display);font-size:17px;line-height:1.15}
+.mock .kick{position:absolute;top:10px;left:12px;font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--accent);padding:2px 8px;border-radius:3px}
+.mock .logo{position:absolute;top:10px;right:12px;width:52px;height:18px;background:rgba(255,255,255,.9);border-radius:3px}
+.mock.v2 .bar{background:rgba(30,45,79,.88)}
+.mock.v3 .big{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:30px;line-height:1.05;color:var(--navy);text-shadow:0 1px 0 rgba(255,255,255,.6)}
+
+/* kalendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px}
+.cal .dow{font-family:var(--display);font-size:13px;color:var(--fg-muted);text-align:center;padding:2px 0;text-transform:uppercase;letter-spacing:.05em}
+.cal .d{aspect-ratio:1/1;border-radius:6px;background:#F7FAFC;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;color:var(--fg-muted);position:relative;padding:2px}
+.cal .d.e{background:transparent}
+.cal .d.has{color:#fff;font-weight:600}
+.cal .d .n{font-family:var(--display);font-size:15px}
+.cal .d .lab{font-size:10.5px;line-height:1.05;text-align:center;opacity:.92;margin-top:1px}
+
+/* posty */
+.post{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
+.post .head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.post .num{font-family:var(--display);font-size:22px;font-weight:700;color:var(--navy)}
+.post .when{font-family:var(--display);font-size:18px;color:var(--fg)}
+.post .ttl{font-family:var(--display);font-size:21px;font-weight:600;flex:1 1 220px;min-width:0}
+.post .body{padding:14px 16px}
+.row{display:grid;grid-template-columns:116px 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.row:last-of-type{border-bottom:0}
+.row .k{font-family:var(--display);font-size:15px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.cap{background:#F7FAFC;border:1px solid var(--line);border-radius:8px;padding:12px 14px;white-space:pre-wrap;font-size:15.5px;margin-top:4px}
+.copy{appearance:none;border:1px solid var(--navy);background:var(--navy);color:#fff;font-family:var(--display);font-size:15px;letter-spacing:.03em;padding:5px 14px;border-radius:999px;cursor:pointer;margin-top:8px}
+.copy:hover{background:#17243f}
+.copy.done{background:#2E7D7B;border-color:#2E7D7B}
+.foto{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:#EDF3F8;border:1px solid var(--line);border-radius:5px;padding:1px 7px;display:inline-block;margin:2px 4px 2px 0}
+
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg-muted);font-size:14.5px}
+
+@media (max-width:560px){
+  .row{grid-template-columns:1fr;gap:2px}
+  .row .k{padding-top:6px}
+  .cal .d .lab{display:none}
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1726; --surface:#162134; --surface-2:#1C2A42; --fg:#E8EFF7; --fg-muted:#9FB3CA;
+    --line:#2A3A56; --navy:#0B1626; --navy-ink:#E8EFF7;
+  }
+  :root:not([data-theme="light"]) .note{background:#35202a}
+  :root:not([data-theme="light"]) .ok{background:#17302e}
+  :root:not([data-theme="light"]) .cap,
+  :root:not([data-theme="light"]) .cal .d{background:#111C2E}
+  :root:not([data-theme="light"]) .foto{background:#1C2A42}
+  :root:not([data-theme="light"]) .mock .big{color:#E8EFF7;text-shadow:none}
+}
+:root[data-theme="dark"]{
+  --bg:#0E1726; --surface:#162134; --surface-2:#1C2A42; --fg:#E8EFF7; --fg-muted:#9FB3CA;
+  --line:#2A3A56; --navy:#0B1626; --navy-ink:#E8EFF7;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Obsahový plán — listopad a prosinec</h1>
+    <div class="sub">Ski centrum Šafář · sociální sítě, sezóna 2026/27</div>
+    <div class="meta">
+      <span>Verze ze dne 25. 10. 2026</span>
+      <span>Rytmus: úterý a pátek</span>
+      <span><a href="https://drive.google.com/drive/folders/1HpaHMlA3ogh6AcqXFlcAg3UNStChAPf5" target="_blank" rel="noopener">Sdílená složka s podklady →</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<h2>K čemu tahle stránka je</h2>
+<p class="lede">Jedno místo, kde je vidět, co se kdy publikuje, proč, jak to má vypadat a jaký text k tomu patří. Používá ji každý, kdo na sezóně dělá — majitel, instruktoři, grafik i ten, kdo příspěvek nakonec odesílá. Není to zadání pro jednoho člověka, je to plán.</p>
+
+<div class="grid g3">
+  <div class="card">
+    <h3 style="margin-top:0">Kde jsou podklady</h3>
+    <p style="margin:0">Na Google Disku ve složce <a href="https://drive.google.com/drive/folders/1HpaHMlA3ogh6AcqXFlcAg3UNStChAPf5" target="_blank" rel="noopener">Ski Šafář — Podklady pro sítě</a>. Je rozdělená na <strong>00</strong> (logo, barvy, schválené fotky) a <strong>A–D</strong> podle fází sezóny. Hotová grafika se nahrává do složky té fáze, ke které patří.</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Co se kdy dodává</h3>
+    <p style="margin:0">Grafika se dělá po měsíčních dávkách, ne po jednom příspěvku. <strong>Listopad (posty 01–08): hotovo do neděle 1. 11.</strong> Prosinec se zadává 24. 11., leden 20. 12.</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Co se sleduje</h3>
+    <p style="margin:0">Ne lajky. Přihlášky instruktorů, rezervace a dotazy ve zprávách. Čísla se měří dvakrát do měsíce, vyhodnocení přijde vždy na začátku toho následujícího.</p>
+  </div>
+</div>
+
+<div class="note">
+  <strong>Pravidlo pro fotky, které platí bez výjimky.</strong><br>
+  Ven nejde fotka, na které je <em>rozpoznatelný obličej</em> — dítěte ani dospělého. Platí to i pro fotky z minulé sezóny. Použitelné jsou záběry zezadu, z odstupu, detaily vybavení a krajina. Ve složce <strong>00 → Fotky — schválené k použití</strong> je pět fotek, které touhle kontrolou prošly. Jsou to doporučení, ne povinnost — kdo najde v archivu vhodnější záběr, který pravidlo splňuje, použije ho. Výjimku nemá samotné pravidlo, ne výběr fotky.
+</div>
+
+<h2>Čtyři fáze sezóny</h2>
+<p class="lede">Každá fáze má jiný úkol. Obsah, který by v lednu fungoval, v listopadu propadne — a naopak.</p>
+<div class="tw">
+<table>
+  <thead><tr><th style="width:150px">Fáze</th><th style="width:170px">Období</th><th>Co má obsah dokázat</th><th style="width:200px">Čím to děláme</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A</strong> Před sezónou</td><td>listopad – prosinec</td><td>Sehnat instruktory, rozhýbat sítě před otevřením, prodat dárkové poukazy.</td><td>Archiv minulé zimy, přípravy, nábor</td></tr>
+    <tr><td><strong>B</strong> Začátek sezóny</td><td>prosinec – leden</td><td>Odpovědět na to, co rodiče brzdí před první rezervací. Ukázat lidi.</td><td>Videoodpovědi, představení týmu</td></tr>
+    <tr><td><strong>C</strong> Hlavní sezóna</td><td>leden – polovina března</td><td>Dokázat, že se u nás děti něco naučí. Zaplnit slabé dny a jarní prázdniny.</td><td>Pokrok, denní stories ze svahu</td></tr>
+    <tr><td><strong>D</strong> Konec sezóny</td><td>březen – duben</td><td>Posbírat reference a materiál na příští rok.</td><td>Závod, poděkování, vyhodnocení</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Tři pilíře obsahu</h2>
+<p class="lede">Nic víc. Konzistence je cennější než pestrost — tři témata se dají udržet celou sezónu i při plném provozu.</p>
+<div class="grid g3">
+  <div class="card"><span class="pill p-pokrok">Pokrok</span><h3>Od prvního pádu k vlastní jízdě</h3><p style="margin:0">Důkaz, že se dítě něco naučí. Nejsilnější argument, který škola má, a nikdo z konkurence ho neukazuje. Naplno běží od ledna.</p></div>
+  <div class="card"><span class="pill p-lide">Lidé</span><h3>Kdo vaše dítě učí</h3><p style="margin:0">Instruktoři jako konkrétní lidé, ne anonymní žluté vesty. Rodič svěřuje dítě člověku, ne firmě.</p></div>
+  <div class="card"><span class="pill p-odpovedi">Odpovědi</span><h3>Na každý dotaz odpovídáme videem</h3><p style="margin:0">Co se rodiče ptají na telefonu, to se ptají i ostatní. Každá odpověď je jedno krátké video — natočí ji Šáfa nebo instruktor na telefon.</p></div>
+</div>
+<p style="color:var(--fg-muted);font-size:15px">V listopadu ještě nemáme ani klienty, ani tým. Proto se do té doby používají dvě přechodná témata — <span class="pill p-archiv">Archiv</span> (minulá zima) a <span class="pill p-pripravy">Přípravy</span> (co se děje před otevřením) — plus <span class="pill p-kampan">Kampaň</span> na nábor a poukazy. Od prosince přebírají vládu tři pilíře výše.</p>
+
+<h2>Vizuální základ</h2>
+<div class="grid g2">
+  <div class="card">
+    <h3 style="margin-top:0">Barvy</h3>
+    <div class="sw"><span class="chip" style="background:#1E2D4F"></span><div><strong>Tmavá modrá</strong> — základ, pruhy, text<br><span class="hex">#1E2D4F</span></div></div>
+    <div class="sw"><span class="chip" style="background:#4A9AD4"></span><div><strong>Světlá modrá</strong> — doplněk, odkazy<br><span class="hex">#4A9AD4</span></div></div>
+    <div class="sw"><span class="chip" style="background:#C9284D"></span><div><strong>Malinová</strong> — výzvy k akci, jen na malé ploše<br><span class="hex">#C9284D</span></div></div>
+    <div class="sw"><span class="chip" style="background:#FFFFFF"></span><div><strong>Bílá</strong> — sníh dělá většinu plochy<br><span class="hex">#FFFFFF</span></div></div>
+    <p style="margin:10px 0 0;color:var(--fg-muted);font-size:15px">Oranžová se nepoužívá.</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Písmo a tón</h3>
+    <p><strong>Nadpisy:</strong> úzký bezpatkový řez (Barlow Condensed nebo podobný). <strong>Text:</strong> běžný bezpatkový (Source Sans 3).</p>
+    <p><strong>Tón:</strong> krátké věty, konkrétní čísla, žádné superlativy. Nepíšeme „zažijte kouzlo zimy“, píšeme „učíme od tří let, ve skupině je maximálně šest dětí“.</p>
+    <p style="margin:0"><strong>Hlavní myšlenka školy:</strong> lyžařská škola a půjčovna s radostí a láskou. Rodinná, ne výkonnostní.</p>
+  </div>
+</div>
+
+<div class="note ok">
+  <strong>Žlutá na fotkách.</strong><br>
+  Na fotkách z provozu dominuje neonově žlutá — bundy instruktorů a dětské vesty. Grafika se drží modré palety výše; žlutá zůstává na fotkách jako barva oblečení a do grafických prvků se nepřenáší.
+</div>
+
+<h2>Tři šablony</h2>
+<p class="lede">Víc jich není potřeba. Každý příspěvek v plánu má u sebe napsáno, která se použije.</p>
+<div class="grid g3">
+  <div class="card">
+    <div class="mock"><div class="ph"></div><span class="kick">Archiv</span><span class="logo"></span><div class="bar">Takhle vypadala minulá zima</div></div>
+    <h3 style="margin-top:0">A — Karusel</h3>
+    <p style="margin:0">3–5 snímků. První nese celý nadpis, další jsou fotky s jednou větou dole. Poslední snímek vždy výzva k akci. Formát 1080×1080.</p>
+  </div>
+  <div class="card">
+    <div class="mock v2"><div class="ph"></div><span class="kick">Odpověď</span><span class="logo"></span><div class="bar">Od kolika let dávat dítě na lyže?</div></div>
+    <h3 style="margin-top:0">B — Videoodpověď</h3>
+    <p style="margin:0">Svislé video 1080×1920, 20–40 sekund. Otázka velkým písmem první dvě vteřiny, pak mluví člověk. Vždy titulky — většina lidí to má bez zvuku.</p>
+  </div>
+  <div class="card">
+    <div class="mock v3"><div class="ph"></div><span class="logo"></span><div class="big">Otevíráme<br>13. prosince</div></div>
+    <h3 style="margin-top:0">C — Jeden snímek</h3>
+    <p style="margin:0">Jedna fotka, jedno sdělení, nic víc. Na oznámení a připomínky. Text drží maximálně osm slov. Formát 1080×1350.</p>
+  </div>
+</div>
+
+<h2>Fotky, které jsou schválené k použití</h2>
+<p class="lede">Pět fotek z minulé sezóny, které prošly kontrolou na rozpoznatelné obličeje. Leží ve složce <strong>00 → Fotky — schválené k použití</strong>. U každého příspěvku níže je napsáno, která se k němu hodí — je to výchozí bod, ne závazek. Lepší záběr z archivu, který pravidlo o obličejích splňuje, má přednost.</p>
+<div class="tw">
+<table>
+  <thead><tr><th style="width:290px">Soubor</th><th>Co je na ní</th><th style="width:230px">Hodí se na</th></tr></thead>
+  <tbody>
+    <tr><td><span class="foto">01_lanovka-zasnezeny-les_modra-obloha.jpg</span></td><td>Pohled z lanovky, zasněžené smrky, čerstvě upravená sjezdovka, modrá obloha. Nikdo na ní není.</td><td>Úvodní snímky, oznámení, pozadí pod text</td></tr>
+    <tr><td><span class="foto">02_sjezdovka-chata_slunecno_instruktor-z-dalky.jpg</span></td><td>Slunečná sjezdovka s horskou chatou, instruktor ve žluté bundě z velké dálky.</td><td>Archiv, „takhle to u nás vypadá“</td></tr>
+    <tr><td><span class="foto">03_skupina-zezadu_mlha_lyze-v-popredi.jpg</span></td><td>Skupina dětí zezadu v mlze, v popředí odložené lyže a hole.</td><td>Přípravy, atmosféra, servis vybavení</td></tr>
+    <tr><td><span class="foto">04_snezeni_detska-skupina-z-dalky.jpg</span></td><td>Husté sněžení, řada dětí v odstupu, instruktoři ve žlutém.</td><td>Školní kurzy, skupinová výuka</td></tr>
+    <tr><td><span class="foto">05_instruktor-zezadu_rada-deti_les.jpg</span></td><td>Instruktor zády ke kameře před nastoupenou řadou dětí, les v pozadí.</td><td>Nábor instruktorů, „co tě čeká“</td></tr>
+  </tbody>
+</table>
+</div>
+<p style="color:var(--fg-muted);font-size:15px">Pokud jedna fotka vyjde na víc příspěvků, je to v pořádku — řeší se jiným ořezem, jiným detailem a jiným textem. Lepší opakovaná bezpečná fotka než nová s obličejem.</p>
+
+<h2>Kalendář</h2>
+<div class="grid g2">
+  <div><h3 style="margin-top:0">Listopad 2026</h3><div class="cal" id="cal11"></div></div>
+  <div><h3 style="margin-top:0">Prosinec 2026</h3><div class="cal" id="cal12"></div></div>
+</div>
+
+<h2>Plán příspěvků</h2>
+<p class="lede">Šestnáct příspěvků, listopad a prosinec. U každého je šablona, doporučená fotka, co na ní má být vidět, proč tam ten příspěvek je a hotový text ke zkopírování.</p>
+<div id="posts"></div>
+
+<footer>
+  Ski centrum Šafář · obsahový plán sezóny 2026/27 · aktualizováno 25. 10. 2026 · interní pracovní stránka<br>
+  Přihlašovací formulář pro instruktory: <a href="https://airtable.com/appiwirG7DGnntmSU/pagE6zv82c2nxqqr5/form" target="_blank" rel="noopener">airtable.com/…/form</a>
+</footer>
+
+</div>
+
+<script>
+const FORM = "https://airtable.com/appiwirG7DGnntmSU/pagE6zv82c2nxqqr5/form";
+
+const posts = [
+{n:1,d:"3. 11.",dow:"Úterý",m:11,day:3,p:"archiv",pl:"Archiv",t:"Pamatujete na minulou zimu?",
+ tpl:"A — karusel, 5 snímků",
+ foto:["01_lanovka-zasnezeny-les_modra-obloha.jpg","02_sjezdovka-chata_slunecno_instruktor-z-dalky.jpg","04_snezeni_detska-skupina-z-dalky.jpg","03_skupina-zezadu_mlha_lyze-v-popredi.jpg"],
+ mat:"Čtyři fotky z minulé zimy v tomhle pořadí, na posledním snímku jen tmavě modrá plocha s datem otevření a odkazem. Žádné rámečky, fotka jde přes celou plochu, text do spodního pruhu.",
+ why:"První příspěvek sezóny. Nemá nic prodávat — má připomenout, že škola existuje, a rozhýbat dosah před náborem, který jde za tři dny.",
+ cap:`Sníh zatím není. Všechno ostatní se už chystá.
+
+Takhle vypadala minulá zima na Duncanu a na Černé hoře.
+
+Otevíráme v polovině prosince. Rezervace na skicentrumsafar.cz jsou otevřené už teď.`},
+
+{n:2,d:"6. 11.",dow:"Pátek",m:11,day:6,p:"kampan",pl:"Kampaň",t:"Hledáme instruktory",
+ tpl:"A — karusel, 4 snímky + reklama",
+ foto:["05_instruktor-zezadu_rada-deti_les.jpg","02_sjezdovka-chata_slunecno_instruktor-z-dalky.jpg"],
+ mat:"Snímek 1: fotka 05 s nadpisem „Pojď dělat instruktora“. Snímek 2: co nabízíme — odměna, ubytování, skipas, oblečení, příspěvek na kurz. Snímek 3: co potřebuješ. Snímek 4: tmavě modrá plocha, „Přihlas se za dvě minuty“ + odkaz. Žádné obličeje.",
+ why:"Nejdůležitější příspěvek listopadu. Tým musí být uzavřený do 15. 11. kvůli licenčním kurzům. Jediný příspěvek v listopadu, který se podpoří placenou reklamou — cílení 18–30 let, okres Trutnov a Semily plus celá ČR na zájmy lyžování.",
+ note:"CTA jde na přihlašovací formulář, ne na e-mail a telefon. Na Instagramu odkaz v příspěvku neklikne — po dobu náboru se přepne odkaz v biu na formulář.",
+ cap:`Pojď do toho a staň se instruktorem.
+
+Co nabízíme:
+– odměnu 250–420 Kč/hod
+– ubytování, pokud nejsi místní
+– firemní oblečení
+– celosezonní skipas do SkiResortu Černá hora
+– příspěvek na instruktorský kurz, pokud ho ještě nemáš
+– partu, se kterou se dá vydržet celá zima
+
+Co potřebuješ:
+– slušné vystupování
+– trpělivost a zodpovědnost
+– základní lyžařské nebo snowboardové dovednosti
+– chuť pracovat s dětmi i dospělými
+– cizí jazyk alespoň na domluvení
+
+Přihlášku vyplníš za dvě minuty, ozveme se do 24 hodin.
+${FORM}
+
+#lyzovani #brigada #snowboarding #instruktor #instruktorlyzovani #skiresortcernahora #krkonose`},
+
+{n:3,d:"10. 11.",dow:"Úterý",m:11,day:10,p:"pripravy",pl:"Přípravy",t:"Servis lyží z půjčovny",
+ tpl:"C — jeden snímek",
+ foto:["03_skupina-zezadu_mlha_lyze-v-popredi.jpg"],
+ mat:"Ideálně nová fotka: detail lyží ve stojanu, broušené hrany, vosk. Stačí telefon. Když nová nebude, ořez fotky 03 na lyže v popředí. Text nahoře, maximálně osm slov.",
+ why:"Ukazuje, že půjčovna není skladiště. Rodič, který půjčuje dítěti lyže, chce vědět, že nedostane tupé hrany.",
+ cap:`Než napadne sníh, jde přes servis každý pár z půjčovny. Hrany, skluznice, vázání a jeho nastavení na váhu dítěte.
+
+Vybavení si jde rezervovat dopředu — ve špičce bývá vybráno.`},
+
+{n:4,d:"13. 11.",dow:"Pátek",m:11,day:13,p:"kampan",pl:"Kampaň",t:"Nábor — poslední výzva",
+ tpl:"C — jeden snímek",
+ foto:["05_instruktor-zezadu_rada-deti_les.jpg"],
+ mat:"Tmavě modrá plocha, velké „Zbývá pár míst v týmu“, pod tím datum uzávěrky a odkaz. Fotka 05 jako potemnělé pozadí.",
+ why:"Krátká připomínka dva dny před uzávěrkou. Kdo váhal u prvního příspěvku, teď má důvod se rozhodnout.",
+ cap:`Uzávěrka přihlášek je v neděli 15. listopadu. Pak začínají licenční kurzy a další už nestihneme zařadit.
+
+Pokud o tom aspoň chvíli uvažuješ, vyplň přihlášku. Nezávazné, dvě minuty.
+${FORM}`},
+
+{n:5,d:"17. 11.",dow:"Úterý",m:11,day:17,p:"archiv",pl:"Archiv",t:"Školní kurzy minulé sezóny",
+ tpl:"A — karusel, 3 snímky",
+ foto:["04_snezeni_detska-skupina-z-dalky.jpg","02_sjezdovka-chata_slunecno_instruktor-z-dalky.jpg"],
+ mat:"Snímek 1 fotka 04 s nadpisem. Snímek 2 fotka 02 s jednou větou o rozsahu. Snímek 3 tmavě modrá plocha s kontaktem pro školy. Děti jen z odstupu.",
+ why:"Míří na učitele a ředitele, ne na rodiče. Školní kurzy domlouvá majitel napřímo, tenhle příspěvek mu jen dělá podklad — školy si firmu najdou a ověří na sítích.",
+ cap:`Minulou zimu u nás lyžovalo několik školních kurzů z Čech i z Německa.
+
+Zajistíme instruktory, vybavení z půjčovny i rozdělení dětí podle úrovně. Škola řeší jen dopravu a dozor.
+
+Termíny na sezónu 2026/27 se domlouvají teď.`},
+
+{n:6,d:"20. 11.",dow:"Pátek",m:11,day:20,p:"pripravy",pl:"Přípravy",t:"Chata Viktorka se chystá",
+ tpl:"C — jeden snímek",
+ foto:["01_lanovka-zasnezeny-les_modra-obloha.jpg"],
+ mat:"Nejlépe nová fotka chaty nebo půjčovny zvenku. Záložně fotka 01. V rohu jméno pobočky.",
+ why:"Většina lidí ví jen o Duncanu. Tenhle příspěvek představuje druhou pobočku v Janských Lázních.",
+ cap:`Druhá pobočka: Chata Viktorka v Janských Lázních, přímo pod SkiResortem Černá hora.
+
+Půjčovna i lyžařská škola. Kdo bydlí na téhle straně hor, nemusí jezdit na Duncan.`},
+
+{n:7,d:"24. 11.",dow:"Úterý",m:11,day:24,p:"kampan",pl:"Kampaň",t:"Dárkový poukaz na výuku",
+ tpl:"A — karusel, 3 snímky",
+ foto:["02_sjezdovka-chata_slunecno_instruktor-z-dalky.jpg"],
+ mat:"Snímek 1: návrh, jak poukaz vypadá — na modré ploše, čitelný. Snímek 2: fotka 02 s větou, co je uvnitř. Snímek 3: jak ho koupit. Grafika poukazu je součástí téhle dávky.",
+ why:"Start vánoční kampaně. Lekce jako dárek je pro prarodiče srozumitelná věc a přináší peníze ještě před otevřením sezóny.",
+ cap:`Dárkový poukaz na lyžařskou výuku. Platí na obě pobočky, celou sezónu.
+
+Dá se koupit na konkrétní počet lekcí nebo na částku. Vystavíme ho do druhého dne, stačí napsat.
+
+Pro prarodiče, kteří nevědí, co koupit — tohle dítě používá celou zimu.`},
+
+{n:8,d:"27. 11.",dow:"Pátek",m:11,day:27,p:"pripravy",pl:"Přípravy",t:"Co je u nás nového",
+ tpl:"A — karusel, 3 snímky",
+ foto:["01_lanovka-zasnezeny-les_modra-obloha.jpg"],
+ mat:"Čeká se na podklady od majitele (dodá do 20. 11.) — co se za léto změnilo: vybavení, ceník, kurzy, provozní doba. Grafika: modrá plocha, jedna novinka na snímek.",
+ why:"Uzavírá listopad a připravuje prosincové otevření. Konkrétní novinky dávají důvod sledovat účet dál.",
+ cap:`Co se u nás přes léto změnilo, než v prosinci otevřeme.
+
+[DOPLNÍ MAJITEL — novinky na sezónu 2026/27]
+
+Rezervace na sezónu jsou otevřené.`},
+
+{n:9,d:"1. 12.",dow:"Úterý",m:12,day:1,p:"odpovedi",pl:"Odpovědi",t:"Od kolika let dávat dítě na lyže?",
+ tpl:"B — videoodpověď, 30 s",
+ vid:true,
+ mat:"Natočí Šáfa na telefon, svisle, na svahu nebo před půjčovnou. Otázka velkým písmem první dvě vteřiny, titulky po celou dobu. Žádný štáb, žádný scénář — mluví, jako by odpovídal na telefonu.",
+ why:"První otázka, kterou rodiče pokládají. Odpovědět na ni videem je důvěryhodnější než větou v popisku a zároveň otevírá celou řadu videoodpovědí na prosinec.",
+ cap:`Od kolika let?
+
+Nejčastější dotaz, který nám chodí. Odpověď je ve videu — a není to jenom číslo, záleží to na dítěti.
+
+Ptejte se dál v komentářích, odpovíme dalším videem.`},
+
+{n:10,d:"4. 12.",dow:"Pátek",m:12,day:4,p:"kampan",pl:"Kampaň",t:"Poukaz — připomínka",
+ tpl:"C — jeden snímek",
+ foto:["01_lanovka-zasnezeny-les_modra-obloha.jpg"],
+ mat:"Stejná grafika poukazu jako u příspěvku 07, jiný ořez a jiný text. Malinová jen na výzvě.",
+ why:"Druhá vlna vánoční kampaně. Lidé začínají řešit dárky kolem Mikuláše.",
+ cap:`Dárek, který se nerozbije do Vánoc.
+
+Poukaz na lyžařskou výuku vystavíme do druhého dne, stačí napsat zprávu.`},
+
+{n:11,d:"8. 12.",dow:"Úterý",m:12,day:8,p:"odpovedi",pl:"Odpovědi",t:"Musíme dítěti kupovat lyže?",
+ tpl:"B — videoodpověď, 30 s",
+ vid:true,
+ mat:"Natočeno v půjčovně mezi stojany. Ukázat, jak se vybírá délka lyže podle výšky dítěte. Svisle, titulky.",
+ why:"Odstraňuje nejdražší překážku před první lekcí. Zároveň prodává půjčovnu, aniž by to vypadalo jako reklama.",
+ cap:`Musíme dítěti kupovat lyže?
+
+Nemusíte. A první rok to ani nedoporučujeme — dítě vyroste dřív, než lyže stihne sjezdit.
+
+Jak vybíráme délku, je ve videu.`},
+
+{n:12,d:"11. 12.",dow:"Pátek",m:12,day:11,p:"lide",pl:"Lidé",t:"Otevíráme",
+ tpl:"C — jeden snímek",
+ foto:["01_lanovka-zasnezeny-les_modra-obloha.jpg"],
+ mat:"Pokud do té doby proběhne společné focení týmu, použít tu fotku. Pokud ne, fotka 01 s velkým datem.",
+ why:"Oznámení otevření. Nejsledovanější příspěvek prosince — pokud do té doby existuje týmová fotka, je tohle místo, kde ji použít.",
+ cap:`Otevíráme.
+
+Obě pobočky, lyžařská škola i půjčovna. Rezervujte si termín dopředu, o víkendech bývá plno.
+
+skicentrumsafar.cz`},
+
+{n:13,d:"15. 12.",dow:"Úterý",m:12,day:15,p:"odpovedi",pl:"Odpovědi",t:"Co když dítě nebude chtít?",
+ tpl:"B — videoodpověď, 40 s",
+ vid:true,
+ mat:"Natočí Šáfa. Tohle je nejcitlivější otázka — odpověď musí být klidná a konkrétní, ne odbytá.",
+ why:"Skutečný důvod, proč rodiče odkládají první lekci. Upřímná odpověď prodává víc než slib, že se to nikdy nestane.",
+ cap:`„A co když nebude chtít?“
+
+Stane se to. Skoro v každé skupině je jedno dítě, které první den brečí.
+
+Co s tím děláme, je ve videu. Nikoho netlačíme.`},
+
+{n:14,d:"18. 12.",dow:"Pátek",m:12,day:18,p:"lide",pl:"Lidé",t:"Instruktor se představuje",
+ tpl:"B — video od instruktora, 20 s",
+ vid:true,
+ mat:"Natočí si sám instruktor na svůj telefon. Jméno, odkud je, jak dlouho učí, co ho na tom baví. Bez scénáře — autenticita je tady důležitější než kvalita obrazu. Nutný podepsaný souhlas s použitím.",
+ why:"Rodič svěřuje dítě konkrétnímu člověku. Tohle je první z řady — každý instruktor dostane během sezóny svoje video.",
+ cap:`Kdo bude vaše dítě učit.
+
+[JMÉNO], letos u nás [POČET] sezónu.
+
+Během ledna představíme celý tým.`},
+
+{n:15,d:"22. 12.",dow:"Úterý",m:12,day:22,p:"kampan",pl:"Kampaň",t:"Poslední šance na poukaz",
+ tpl:"C — jeden snímek",
+ foto:["01_lanovka-zasnezeny-les_modra-obloha.jpg"],
+ mat:"Stejná grafika poukazu, výrazná malinová výzva. Jasně uvést, do kdy stihneme vystavit.",
+ why:"Poslední den, kdy má smysl dárek řešit. Krátké, konkrétní, bez vymýšlení.",
+ cap:`Dnes je poslední den, kdy stihneme vystavit poukaz do Vánoc.
+
+Napište zprávu, pošleme ho během dneška v elektronické podobě i k vytištění.`},
+
+{n:16,d:"29. 12.",dow:"Úterý",m:12,day:29,p:"pokrok",pl:"Pokrok",t:"První pokrok sezóny",
+ tpl:"B — video, dopoledne a odpoledne",
+ vid:true,
+ mat:"Dva záběry jednoho dítěte: ráno a odpoledne stejného dne. Natočí instruktor při výuce, trvá to minutu. Záběr zezadu nebo z dálky, bez rozpoznatelného obličeje.",
+ why:"První příspěvek hlavního pilíře. Vánoční týden je nejsilnější na obsazenost a tohle je obsah, který nikdo z konkurence nedělá.",
+ note:"Záběr zezadu funguje. Se souhlasem rodičů a záběrem zepředu je to ale mnohem silnější — stojí za to si ho vyžádat.",
+ cap:`Ráno a odpoledne. Stejné dítě, stejný den.
+
+Tohle je důvod, proč tu práci děláme.`}
+];
+
+const PCOL = {archiv:"var(--c-archiv)",pripravy:"var(--c-pripravy)",kampan:"var(--c-kampan)",odpovedi:"var(--c-odpovedi)",lide:"var(--c-lide)",pokrok:"var(--c-pokrok)"};
+
+/* kalendar */
+function cal(el,month,year){
+  const dows=["Po","Út","St","Čt","Pá","So","Ne"];
+  let h=dows.map(d=>`<div class="dow">${d}</div>`).join("");
+  const first=new Date(year,month-1,1);
+  let lead=(first.getDay()+6)%7;
+  const days=new Date(year,month,0).getDate();
+  for(let i=0;i<lead;i++) h+=`<div class="d e"></div>`;
+  for(let d=1;d<=days;d++){
+    const p=posts.find(x=>x.m===month&&x.day===d);
+    if(p) h+=`<div class="d has" style="background:${PCOL[p.p]}"><span class="n">${d}</span><span class="lab">${String(p.n).padStart(2,"0")}</span></div>`;
+    else h+=`<div class="d"><span class="n">${d}</span></div>`;
+  }
+  document.getElementById(el).innerHTML=h;
+}
+cal("cal11",11,2026);
+cal("cal12",12,2026);
+
+/* posty */
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+document.getElementById("posts").innerHTML = posts.map(p=>`
+<div class="post">
+  <div class="head">
+    <span class="num">${String(p.n).padStart(2,"0")}</span>
+    <span class="when">${p.dow} ${p.d}</span>
+    <span class="pill p-${p.p}">${p.pl}</span>
+    <span class="ttl">${esc(p.t)}</span>
+  </div>
+  <div class="body">
+    <div class="row"><div class="k">Šablona</div><div>${esc(p.tpl)}</div></div>
+    <div class="row"><div class="k">Fotky (doporučení)</div><div>${p.vid?'<span class="tag">natáčí se nově — fotka z archivu se nepoužívá</span>':p.foto.map(f=>`<span class="foto">${f}</span>`).join("")}</div></div>
+    <div class="row"><div class="k">Co udělat</div><div>${esc(p.mat)}</div></div>
+    <div class="row"><div class="k">Proč</div><div>${esc(p.why)}</div></div>
+    ${p.note?`<div class="row"><div class="k">Pozor</div><div><strong>${esc(p.note)}</strong></div></div>`:""}
+    <div class="row" style="grid-template-columns:1fr"><div class="k">Text příspěvku</div>
+      <div><div class="cap" id="c${p.n}">${esc(p.cap)}</div>
+      <button class="copy" data-n="${p.n}">Zkopírovat text</button></div>
+    </div>
+  </div>
+</div>`).join("");
+
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".copy"); if(!b) return;
+  const t=document.getElementById("c"+b.dataset.n).innerText;
+  const done=()=>{b.textContent="Zkopírováno";b.classList.add("done");setTimeout(()=>{b.textContent="Zkopírovat text";b.classList.remove("done")},1600)};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done).catch(()=>fallback(t,done))}
+  else fallback(t,done);
+});
+function fallback(t,done){
+  const a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";
+  document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(_){}
+  document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
