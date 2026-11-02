@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>FUTURE SALES – Sales Tech blog · návrh</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EAF0FE;-webkit-font-smoothing:antialiased}
+a{color:#1745D6}a:hover{color:#0F33A8}
+@keyframes fs-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.fs-btn{transition:transform .2s ease,background-color .2s ease,border-color .2s ease}
+.fs-btn:hover{transform:translateY(-2px)}
+.fs-card{transition:transform .3s ease,box-shadow .3s ease}
+.fs-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(18,22,27,.45)}
+.fs-nav a{color:#33416B;text-decoration:none}
+.fs-nav a:hover{color:#1745D6}
+.fs-foot a{color:#56637F;text-decoration:none}
+.fs-foot a:hover{color:#1745D6}
+input::placeholder{color:#6B7799}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style>
+.vlna-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:10px clamp(20px,4vw,48px);background:#0F33A8;color:#FFFFFF;font:500 13px/1.4 'Geist',system-ui,sans-serif}
+.vlna-bar a{color:#DCE5FD;text-decoration:none}
+.vlna-bar a:hover{color:#FFFFFF}
+.vlna-bar nav{display:flex;flex-wrap:wrap;gap:6px 16px}
+.vlna-bar nav a[aria-current=page]{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+.vlna-bar .vlna-brand{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){
+  header[style*="sticky"]{position:relative!important}
+  .fs-nav{order:3;width:100%;flex-wrap:nowrap!important;overflow-x:auto;gap:0 22px!important;scrollbar-width:none}
+  .fs-nav::-webkit-scrollbar{display:none}
+  .fs-nav a{white-space:nowrap}
+  .vlna-bar nav{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}
+  .vlna-bar nav a{white-space:nowrap}
+}
+</style>
+</head>
+<body>
+<div class="vlna-bar" role="note">
+  <span><strong>Návrh redesignu pro FUTURE SALES</strong> · připravilo <a href="https://petrjanu.eu" class="vlna-brand">VLNA – marketing studio</a></span>
+  <nav aria-label="Stránky návrhu"><a href="index.html">Web</a><a href="reference.html">Reference</a><a href="blog.html" aria-current="page">Blog</a><a href="start.html">Funnel (start.futuresales.cz)</a><a href="admin.html">Administrace</a></nav>
+</div>
+<div x-data="dc">
+<div style="background: #EAF0FE; color: #0E1B45; font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.92); backdrop-filter: blur(14px); color: #0E1B45">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 14px clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px">
+      <a href="index.html" aria-label="FUTURE SALES – úvod" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0E1B45; min-height: 44px">
+        <span :style="`width: 30px; height: 30px; border-radius: 9px; background: ${v.accent}; display: grid; place-items: center; color: #F5F8FF`">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg>
+        </span>
+        <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em">FUTURE SALES</span>
+      </a>
+      <nav class="fs-nav" aria-label="Hlavní menu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 28px; font-size: 15px; font-weight: 500">
+        <a href="index.html#sluzby" style="padding: 12px 0">Služby</a>
+        <a href="reference.html" style="padding: 12px 0">Reference</a>
+        <a href="index.html#skoleni" style="padding: 12px 0">Školení &amp; akce</a>
+        <a href="blog.html" aria-current="page" :style="`padding: 12px 0; color: #1745D6; box-shadow: inset 0 -2px 0 ${v.accent}`">Blog</a>
+        <a href="index.html#o-nas" style="padding: 12px 0">O nás</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 18px">
+        <a href="#en" style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: #56637F; text-decoration: none; padding: 12px 0">EN</a>
+        <a class="fs-btn" href="index.html#kontakt" :style="`background: ${v.accent}; color: #F5F8FF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 0 22px; min-height: 46px; border-radius: 999px; display: inline-flex; align-items: center`">Domluvit konzultaci</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 48px) 36px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+      <div style="display: flex; flex-direction: column; gap: 18px; max-width: 720px; animation: fs-rise .7s ease both">
+        <p style="margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #1745D6">Sales Tech blog</p>
+        <h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: clamp(42px, 6vw, 84px); line-height: 1.0; letter-spacing: -0.04em">Kdo vládne českému LinkedInu</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A5778">Žebříčky nejvlivnějších lidí a firem, tipy pro social selling a zkušenosti z praxe.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: min(360px, 100%)">
+        <label for="b-search" style="font-size: 14px; font-weight: 500; color: #4A5778">Hledat v článcích</label>
+        <input id="b-search" type="search" :value="v.q" @input="v.onSearch($event)" placeholder="Např. CEOs, finance, retail" style="min-height: 52px; padding: 0 18px; border-radius: 999px; border: 1px solid #CBD6F0; background: #FFFFFF; color: #0E1B45; font-size: 16px; font-family: inherit">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section style="position: sticky; top: 74px; z-index: 10; background: rgba(234,240,254,0.94); backdrop-filter: blur(10px); border-top: 1px solid #D6E0F7; border-bottom: 1px solid #D6E0F7">
+    <div role="group" aria-label="Kategorie" style="max-width: 1240px; margin: 0 auto; padding: 14px clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 8px">
+      <template x-for="c in v.cats">
+        <button type="button" :aria-pressed="c.active" @click="c.pick($event)" class="fs-btn" :style="`min-height: 44px; padding: 0 18px; border-radius: 999px; font-family: 'Geist', system-ui, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; border: 1px solid ${c.bd}; background: ${c.bg}; color: ${c.fg}`"><span x-text="c.label"></span> <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 400; font-size: 12px; margin-left: 4px"><span x-text="c.count"></span></span></button>
+      </template>
+    </div>
+  </section>
+
+  <!-- POSTS -->
+  <section style="padding: 40px 0 clamp(72px, 8vw, 112px)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px">
+
+      <template x-if="v.hasFeatured"><div style="display: contents">
+        <a href="#clanek" class="fs-card" style="text-decoration: none; color: #0E1B45; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); background: #FFFFFF; border: 1px solid #D6E0F7; border-radius: 28px; overflow: hidden">
+          <div style="min-height: 380px; background: #0F33A8; color: #FFFFFF; padding: clamp(28px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+            <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.08em; color: #C9D7FB"><span x-text="v.feat.sub"></span></span>
+            <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: clamp(88px, 11vw, 160px); letter-spacing: -0.05em; line-height: 0.85"><span x-text="v.feat.big"></span></span>
+          </div>
+          <div style="padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; gap: 18px; justify-content: center">
+            <span style="display: inline-flex; align-self: flex-start; gap: 10px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; color: #56637F"><span style="color: #1745D6">Nejnovější</span><span x-text="v.feat.cat"></span> · <span x-text="v.feat.date"></span></span>
+            <h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: clamp(28px, 3vw, 42px); line-height: 1.1; letter-spacing: -0.025em; text-wrap: balance"><span x-text="v.feat.title"></span></h2>
+            <span style="font-weight: 600; font-size: 16px; color: #1745D6">Číst článek →</span>
+          </div>
+        </a>
+      </div></template>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 20px">
+        <template x-for="p in v.rest">
+          <a href="#clanek" class="fs-card" style="text-decoration: none; color: #0E1B45; background: #FFFFFF; border: 1px solid #D6E0F7; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+            <div :style="`height: 170px; background: ${p.coverBg}; color: ${p.coverFg}; padding: 24px 26px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between`">
+              <span :style="`font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; color: ${p.subFg}`"><span x-text="p.sub"></span></span>
+              <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 64px; letter-spacing: -0.05em; line-height: 0.9"><span x-text="p.big"></span></span>
+            </div>
+            <div style="padding: 22px 26px 28px; display: flex; flex-direction: column; gap: 10px">
+              <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #56637F"><span x-text="p.cat"></span> · <span x-text="p.date"></span></span>
+              <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; text-wrap: pretty"><span x-text="p.title"></span></h3>
+            </div>
+          </a>
+        </template>
+      </div>
+
+      <template x-if="v.isEmpty"><div style="display: contents">
+        <div style="border: 1px dashed #C5D2F2; border-radius: 24px; padding: 56px 24px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
+          <strong style="font-size: 18px">Tady zatím nic není</strong>
+          <span style="font-size: 15px; color: #4A5778">Zkuste jinou kategorii nebo hledaný výraz.</span>
+        </div>
+      </div></template>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section style="padding: 0 0 clamp(72px, 8vw, 112px)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px)">
+      <div :style="`background: ${v.accent}; color: #FFFFFF; border-radius: 32px; padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 32px; align-items: center`">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.03em">Nové žebříčky jako první</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DCE5FD">Jednou měsíčně: nový žebříček a jeden praktický tip pro LinkedIn. Žádný spam.</p>
+        </div>
+        <form style="display: flex; flex-direction: column; gap: 10px">
+          <label for="nl-email" style="font-size: 14px; font-weight: 500; color: #DCE5FD">Pracovní e-mail</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <input id="nl-email" type="email" placeholder="jana@firma.cz" style="flex: 1 1 240px; min-height: 56px; padding: 0 20px; border-radius: 999px; border: 1px solid #FFFFFF; background: #FFFFFF; color: #0E1B45; font-size: 16px; font-family: inherit">
+            <button type="button" class="fs-btn" :style="`flex: 0 0 auto; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 0; background: #FFFFFF; color: ${v.accent}; font-family: inherit; font-weight: 600; font-size: 16px; cursor: pointer`">Odebírat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="fs-foot" style="background: #EDF2FD; color: #56637F">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 32px clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 13px">
+      <span>© 2026 FUTURE SALES solutions s.r.o. · IČO 09152580</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px">
+        <a href="#gdpr">Zpracování osobních údajů</a>
+        <a href="#vop">Obchodní podmínky</a>
+        <a href="#cookies">Nastavení cookies</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+<script>
+
+class DCLogic {
+  constructor(props) { this.props = props || {}; this.state = {}; }
+  setState(patch) { this.state = Object.assign({}, this.state, patch); }
+  forceUpdate() { this.state = Object.assign({}, this.state); }
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { cat: 'all', q: '' };
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#1745D6';
+    const P = [
+      { title: 'TOP 15 retail lídrů na českém LinkedIn za první polovinu roku 2026', date: '25. 9. 2026', cat: 'Žebříčky', big: 'TOP 15', sub: 'RETAIL · H1 2026' },
+      { title: 'Kdo vládne LinkedInu? Známe TOP 100 CEOs českého LinkedIn za první polovinu roku 2026', date: '25. 8. 2026', cat: 'Žebříčky', big: 'TOP 100', sub: 'CEOs · H1 2026' },
+      { title: 'TOP 20 českých CEOs ve finančním sektoru za rok 2025', date: '13. 7. 2026', cat: 'Žebříčky', big: 'TOP 20', sub: 'FINANCE · 2025' },
+      { title: 'TOP 50 nejvlivnějších CEOs v ČR na LinkedIn – update za celý rok 2025', date: '25. 3. 2026', cat: 'Žebříčky', big: 'TOP 50', sub: 'CEOs · 2025' },
+      { title: '2025 versus 2026: aktualizovaný žebříček firem podle počtu sledujících na LinkedIn', date: '27. 2. 2026', cat: 'Žebříčky', big: '25/26', sub: 'FIRMY · SLEDUJÍCÍ' },
+      { title: 'TOP 10 nejvlivnějších konzultačních firem na LinkedIn – update za H1 2025', date: '5. 12. 2025', cat: 'Žebříčky', big: 'TOP 10', sub: 'KONZULTACE · H1 2025' },
+      { title: '200+ vstupních auditů u našich klientů: co jsme se díky nim naučili', date: '26. 11. 2025', cat: 'Praxe & tipy', big: '200+', sub: 'VSTUPNÍ AUDITY' },
+      { title: 'TOP 30 nejvlivnějších firem z finančního segmentu na českém LinkedIn – update za H1 2025', date: '27. 10. 2025', cat: 'Žebříčky', big: 'TOP 30', sub: 'FINANCE · H1 2025' }
+    ];
+    const CATS = [
+      { id: 'all', label: 'Vše' },
+      { id: 'Žebříčky', label: 'LinkedIn žebříčky' },
+      { id: 'Praxe & tipy', label: 'Praxe & tipy' },
+      { id: 'Nástroje', label: 'Nástroje & data' },
+      { id: 'Média', label: 'V médiích' }
+    ];
+    const cat = this.state.cat;
+    const q = (this.state.q || '').trim().toLowerCase();
+    const cats = CATS.map((c) => {
+      const on = c.id === cat;
+      return {
+        ...c,
+        active: on,
+        count: c.id === 'all' ? P.length : P.filter((p) => p.cat === c.id).length,
+        bg: on ? accent : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#0E1B45',
+        bd: on ? accent : '#CBD6F0',
+        pick: () => this.setState({ cat: c.id })
+      };
+    });
+    const styles = [
+      { coverBg: '#0F33A8', coverFg: '#FFFFFF', subFg: '#C9D7FB' },
+      { coverBg: accent, coverFg: '#F5F8FF', subFg: '#F5F8FF' },
+      { coverBg: '#DCE5FD', coverFg: '#0E1B45', subFg: '#4A5778' }
+    ];
+    const list = P
+      .filter((p) => cat === 'all' || p.cat === cat)
+      .filter((p) => !q || p.title.toLowerCase().includes(q));
+    const rest = list.slice(1).map((p, i) => ({ ...p, ...styles[(i + 1) % 3] }));
+    return {
+      accent,
+      q: this.state.q,
+      onSearch: (e) => this.setState({ q: e.target.value }),
+      cats,
+      hasFeatured: list.length > 0,
+      feat: list[0] || P[0],
+      rest,
+      isEmpty: list.length === 0
+    };
+  }
+}
+document.addEventListener('alpine:init', function () {
+  Alpine.data('dc', function () {
+    return { __dc: new Component({}), get v() { return this.__dc.renderVals(); } };
+  });
+});
+</script>
+<script defer src="alpine.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>FUTURE SALES – administrace · návrh</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F8FF;-webkit-font-smoothing:antialiased}
+a{color:#1745D6}a:hover{color:#0F33A8}
+.fs-side{transition:background-color .15s ease,color .15s ease}
+.fs-side:hover{background-color:#EAF0FE;color:#1745D6}
+.fs-row{transition:background-color .15s ease}
+.fs-row:hover{background-color:#F7F9FF}
+.fs-btn{transition:transform .2s ease}
+.fs-btn:hover{transform:translateY(-1px)}
+input::placeholder,textarea::placeholder{color:#6B7799}
+</style>
+<style>
+.vlna-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:10px clamp(20px,4vw,48px);background:#0F33A8;color:#FFFFFF;font:500 13px/1.4 'Geist',system-ui,sans-serif}
+.vlna-bar a{color:#DCE5FD;text-decoration:none}
+.vlna-bar a:hover{color:#FFFFFF}
+.vlna-bar nav{display:flex;flex-wrap:wrap;gap:6px 16px}
+.vlna-bar nav a[aria-current=page]{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+.vlna-bar .vlna-brand{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){
+  header[style*="sticky"]{position:relative!important}
+  .fs-nav{order:3;width:100%;flex-wrap:nowrap!important;overflow-x:auto;gap:0 22px!important;scrollbar-width:none}
+  .fs-nav::-webkit-scrollbar{display:none}
+  .fs-nav a{white-space:nowrap}
+  .vlna-bar nav{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}
+  .vlna-bar nav a{white-space:nowrap}
+}
+</style>
+</head>
+<body>
+<div class="vlna-bar" role="note">
+  <span><strong>Návrh redesignu pro FUTURE SALES</strong> · připravilo <a href="https://petrjanu.eu" class="vlna-brand">VLNA – marketing studio</a></span>
+  <nav aria-label="Stránky návrhu"><a href="index.html">Web</a><a href="reference.html">Reference</a><a href="blog.html">Blog</a><a href="start.html">Funnel (start.futuresales.cz)</a><a href="admin.html" aria-current="page">Administrace</a></nav>
+</div>
+<div x-data="dc">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F5F8FF; color: #0E1B45; font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+  <!-- SIDEBAR -->
+  <aside style="flex: 1 1 240px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #DCE4F7; color: #33416B; padding: 22px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <span :style="`width: 30px; height: 30px; border-radius: 9px; background: ${v.accent}; display: grid; place-items: center; color: #F5F8FF`">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg>
+      </span>
+      <span style="display: flex; flex-direction: column">
+        <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.02em; color: #0E1B45">FUTURE SALES</span>
+        <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #56637F">Administrace</span>
+      </span>
+    </div>
+    <nav aria-label="Administrace" style="display: flex; flex-direction: column; gap: 4px">
+      <template x-for="m in v.menu">
+        <button type="button" :aria-current="m.current" @click="m.pick($event)" class="fs-side" :style="`min-height: 44px; padding: 0 12px; border-radius: 10px; border: 0; background: ${m.bg}; color: ${m.fg}; font-family: 'Geist', system-ui, sans-serif; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px`">
+          <span><span x-text="m.label"></span></span>
+          <template x-if="m.hasBadge"><div style="display: contents">
+            <span :style="`font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; min-width: 22px; height: 22px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: ${v.accent}; color: #F5F8FF; display: grid; place-items: center`"><span x-text="m.badge"></span></span>
+          </div></template>
+        </button>
+      </template>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding: 14px 8px 0; border-top: 1px solid #E1E8F8">
+      <a href="index.html" style="font-size: 14px; color: #33416B; text-decoration: none; min-height: 36px; display: inline-flex; align-items: center">Zobrazit web ↗</a>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="width: 36px; height: 36px; border-radius: 50%; background: #E3EBFE; color: #0E1B45; display: grid; place-items: center; font-size: 13px; font-weight: 600">JJ</span>
+        <span style="display: flex; flex-direction: column; font-size: 13px"><strong style="color: #0E1B45; font-weight: 600">Jiří Jambor</strong><span>Správce</span></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main style="flex: 999 1 560px; min-width: 0; padding: clamp(20px, 3vw, 40px); box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em"><span x-text="v.title"></span></h1>
+        <span style="font-size: 14px; color: #56637F"><span x-text="v.subtitle"></span></span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+        <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #E3EBFE; color: #4A5778">Ukázková data</span>
+        <template x-if="v.showNew"><div style="display: contents">
+          <button type="button" @click="v.openEditor($event)" class="fs-btn" :style="`min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; background: ${v.accent}; color: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer`">+ Nový článek</button>
+        </div></template>
+        <template x-if="v.isLeads"><div style="display: contents">
+          <button type="button" class="fs-btn" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #CBD6F0; background: #FFFFFF; color: #0E1B45; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Export CSV</button>
+        </div></template>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <template x-if="v.isOverview"><div style="display: contents">
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 14px">
+          <template x-for="k in v.kpis">
+            <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+              <span style="font-size: 13px; color: #56637F"><span x-text="k.label"></span></span>
+              <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -0.03em; line-height: 1"><span x-text="k.value"></span></span>
+              <span style="font-size: 13px; color: #4A5778"><span x-text="k.note"></span></span>
+            </div>
+          </template>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+          <strong style="font-size: 16px">Funnel start.futuresales.cz – posledních 30 dní</strong>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <template x-for="f in v.funnel">
+              <div style="display: grid; grid-template-columns: minmax(120px, 180px) 1fr 64px; gap: 14px; align-items: center; font-size: 14px">
+                <span><span x-text="f.label"></span></span>
+                <div style="height: 14px; background: #EEF2FC; border-radius: 999px; overflow: hidden"><div :style="`height: 100%; width: ${f.w}; background: ${f.c}; border-radius: 999px`"></div></div>
+                <span style="font-family: 'Geist Mono', ui-monospace, monospace; text-align: right"><span x-text="f.v"></span></span>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div></template>
+
+    <!-- POSTS -->
+    <template x-if="v.isPosts"><div style="display: contents">
+      <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; overflow-x: auto">
+        <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px">
+          <thead>
+            <tr style="text-align: left; color: #56637F; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em">
+              <th style="padding: 14px 20px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Článek</th>
+              <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Kategorie</th>
+              <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Stav</th>
+              <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Datum</th>
+              <th style="padding: 14px 20px; font-weight: 500; border-bottom: 1px solid #E1E8F8; text-align: right">Akce</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="p in v.posts">
+              <tr class="fs-row">
+                <td style="padding: 14px 20px; border-bottom: 1px solid #EEF2FC; font-weight: 500; max-width: 460px"><span x-text="p.title"></span></td>
+                <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC; color: #4A5778; white-space: nowrap"><span x-text="p.cat"></span></td>
+                <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC; white-space: nowrap"><span :style="`display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 4px 10px; border-radius: 999px; background: ${p.sBg}; color: ${p.sFg}`"><span x-text="p.status"></span></span></td>
+                <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC; color: #4A5778; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; white-space: nowrap"><span x-text="p.date"></span></td>
+                <td style="padding: 8px 20px; border-bottom: 1px solid #EEF2FC; text-align: right"><button type="button" @click="v.openEditor($event)" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #CBD6F0; background: #FFFFFF; color: #0E1B45; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Upravit</button></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div></template>
+
+    <!-- EDITOR -->
+    <template x-if="v.isEditor"><div style="display: contents">
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+        <form style="flex: 999 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="e-title" style="font-size: 13px; font-weight: 600; color: #4A5778">Titulek</label>
+            <input id="e-title" type="text" placeholder="Např. TOP 20 nejvlivnějších CEOs v ČR za H2 2026" style="min-height: 52px; padding: 0 14px; border-radius: 10px; border: 1px solid #CBD6F0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px; font-weight: 600; color: #0E1B45">
+          </div>
+          <div role="toolbar" aria-label="Formátování" style="display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; border: 1px solid #E1E8F8; border-radius: 10px; background: #F7F9FF">
+            <button type="button" aria-label="Nadpis" style="min-width: 40px; min-height: 40px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-weight: 700; cursor: pointer">H2</button>
+            <button type="button" aria-label="Tučně" style="min-width: 40px; min-height: 40px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-weight: 800; cursor: pointer">B</button>
+            <button type="button" aria-label="Kurzíva" style="min-width: 40px; min-height: 40px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-style: italic; cursor: pointer">I</button>
+            <button type="button" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-size: 13px; cursor: pointer">Odkaz</button>
+            <button type="button" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-size: 13px; cursor: pointer">Obrázek</button>
+            <button type="button" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-size: 13px; cursor: pointer">Tabulka žebříčku</button>
+            <button type="button" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 0; background: transparent; font-family: inherit; font-size: 13px; cursor: pointer">CTA blok</button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="e-body" style="font-size: 13px; font-weight: 600; color: #4A5778">Obsah</label>
+            <textarea id="e-body" rows="12" placeholder="Text článku…" style="padding: 14px; border-radius: 10px; border: 1px solid #CBD6F0; font-family: inherit; font-size: 16px; line-height: 1.6; color: #0E1B45; resize: vertical"></textarea>
+          </div>
+        </form>
+        <aside style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 14px">
+          <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+            <strong style="font-size: 15px">Publikace</strong>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="e-cat" style="font-size: 13px; font-weight: 600; color: #4A5778">Kategorie</label>
+              <select id="e-cat" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CBD6F0; font-family: inherit; font-size: 15px; background: #FFFFFF; color: #0E1B45">
+                <option>LinkedIn žebříčky</option>
+                <option>Praxe &amp; tipy</option>
+                <option>Nástroje &amp; data</option>
+                <option>V médiích</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="e-date" style="font-size: 13px; font-weight: 600; color: #4A5778">Naplánovat na</label>
+              <input id="e-date" type="datetime-local" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CBD6F0; font-family: inherit; font-size: 15px; color: #0E1B45">
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <button type="button" @click="v.saveDraft($event)" style="flex: 1 1 auto; min-height: 44px; border-radius: 10px; border: 1px solid #CBD6F0; background: #FFFFFF; color: #0E1B45; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Uložit koncept</button>
+              <button type="button" @click="v.saveDraft($event)" :style="`flex: 1 1 auto; min-height: 44px; border-radius: 10px; border: 0; background: ${v.accent}; color: #F5F8FF; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer`">Publikovat</button>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+            <strong style="font-size: 15px">SEO a sdílení</strong>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="e-slug" style="font-size: 13px; font-weight: 600; color: #4A5778">URL</label>
+              <input id="e-slug" type="text" placeholder="/blog/top-20-ceos-h2-2026" style="min-height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #CBD6F0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: #0E1B45">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="e-meta" style="font-size: 13px; font-weight: 600; color: #4A5778">Meta popis</label>
+              <textarea id="e-meta" rows="3" placeholder="Do 155 znaků" style="padding: 10px; border-radius: 10px; border: 1px solid #CBD6F0; font-family: inherit; font-size: 14px; color: #0E1B45; resize: vertical"></textarea>
+            </div>
+            <label for="e-cover" style="display: flex; gap: 10px; align-items: center; font-size: 14px; cursor: pointer">
+              <input id="e-cover" type="checkbox" checked style="width: 18px; height: 18px; accent-color: #0E1B45">
+              Vygenerovat typografický náhled (TOP X)
+            </label>
+          </div>
+        </aside>
+      </div>
+    </div></template>
+
+    <!-- LEADS -->
+    <template x-if="v.isLeads"><div style="display: contents">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div role="group" aria-label="Filtr stavu" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <template x-for="f in v.leadFilters">
+            <button type="button" :aria-pressed="f.active" @click="f.pick($event)" :style="`min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid ${f.bd}; background: ${f.bg}; color: ${f.fg}; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer`"><span x-text="f.label"></span> · <span x-text="f.count"></span></button>
+          </template>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; overflow-x: auto">
+          <table style="width: 100%; min-width: 860px; border-collapse: collapse; font-size: 14px">
+            <thead>
+              <tr style="text-align: left; color: #56637F; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em">
+                <th style="padding: 14px 20px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Lead</th>
+                <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Tým</th>
+                <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Doporučeno</th>
+                <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Skóre</th>
+                <th style="padding: 14px 12px; font-weight: 500; border-bottom: 1px solid #E1E8F8">Stav</th>
+                <th style="padding: 14px 20px; font-weight: 500; border-bottom: 1px solid #E1E8F8; text-align: right">Akce</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="l in v.leads">
+                <tr class="fs-row">
+                  <td style="padding: 14px 20px; border-bottom: 1px solid #EEF2FC"><span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-weight: 600"><span x-text="l.id"></span></strong><span style="color: #56637F; font-size: 13px"><span x-text="l.role"></span></span></span></td>
+                  <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC; color: #4A5778; white-space: nowrap"><span x-text="l.team"></span></td>
+                  <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC; white-space: nowrap"><span x-text="l.rec"></span></td>
+                  <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC"><span style="display: flex; align-items: center; gap: 8px"><span style="width: 60px; height: 6px; background: #EEF2FC; border-radius: 999px; overflow: hidden"><span :style="`display: block; height: 100%; width: ${l.scoreW}; background: #1745D6`"></span></span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px"><span x-text="l.score"></span></span></span></td>
+                  <td style="padding: 14px 12px; border-bottom: 1px solid #EEF2FC; white-space: nowrap"><span :style="`font-size: 13px; padding: 4px 10px; border-radius: 999px; background: ${l.sBg}; color: ${l.sFg}`"><span x-text="l.status"></span></span></td>
+                  <td style="padding: 8px 20px; border-bottom: 1px solid #EEF2FC; text-align: right">
+                    <template x-if="l.canSend"><div style="display: contents">
+                      <button type="button" @click="l.send($event)" :style="`min-height: 36px; padding: 0 12px; border-radius: 8px; border: 0; background: ${v.accent}; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap`">Poslat do Pipedrive</button>
+                    </div></template>
+                    <template x-if="l.sent"><div style="display: contents">
+                      <span style="font-size: 13px; color: #166534; white-space: nowrap">✓ Synchronizováno</span>
+                    </div></template>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div></template>
+
+    <!-- REFERENCES -->
+    <template x-if="v.isRefs"><div style="display: contents">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 14px">
+        <template x-for="r in v.refs">
+          <div style="background: #FFFFFF; border: 1px solid #DCE4F7; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+            <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #56637F"><span x-text="r.tag"></span></span>
+            <strong style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px"><span x-text="r.company"></span></strong>
+            <span style="font-size: 14px; color: #4A5778"><span x-text="r.person"></span></span>
+            <div style="display: flex; gap: 8px; margin-top: 6px">
+              <button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #CBD6F0; background: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Upravit</button>
+              <span style="font-size: 13px; padding: 8px 10px; border-radius: 999px; background: #DCFCE7; color: #166534">Publikováno</span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div></template>
+
+    <!-- EMPTY (Akce, Nastavení) -->
+    <template x-if="v.isEmpty"><div style="display: contents">
+      <div style="border: 1px dashed #C5D2F2; border-radius: 16px; padding: 56px 24px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center">
+        <strong style="font-size: 17px"><span x-text="v.emptyTitle"></span></strong>
+        <span style="font-size: 14px; color: #4A5778; max-width: 440px"><span x-text="v.emptyText"></span></span>
+      </div>
+    </div></template>
+  </main>
+</div>
+</div>
+<script>
+
+class DCLogic {
+  constructor(props) { this.props = props || {}; this.state = {}; }
+  setState(patch) { this.state = Object.assign({}, this.state, patch); }
+  forceUpdate() { this.state = Object.assign({}, this.state); }
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { view: 'leads', leadFilter: 'all', sent: {} };
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#1745D6';
+    const view = this.state.view;
+    const L0 = [
+      { id: 'Lead #1048', role: 'Head of Sales · IT služby', team: '11–30', rec: 'Social Selling', score: 86, status: 'Rezervováno' },
+      { id: 'Lead #1047', role: 'CEO · poradenská firma', team: '4–10', rec: 'Digitální networking', score: 72, status: 'Rezervováno' },
+      { id: 'Lead #1046', role: 'Marketing Manager · výroba', team: '4–10', rec: 'Digital B2B Marketing', score: 64, status: 'Nový' },
+      { id: 'Lead #1045', role: 'BD Manager · fintech', team: '1–3', rec: 'Social Selling', score: 58, status: 'Nový' },
+      { id: 'Lead #1044', role: 'Obchodní ředitel · logistika', team: 'Víc než 30', rec: 'Digital B2B Marketing', score: 91, status: 'V Pipedrive' },
+      { id: 'Lead #1043', role: 'Jednatel · účetní služby', team: '1–3', rec: 'Digitální networking', score: 41, status: 'Nový' }
+    ];
+    const sent = this.state.sent;
+    const L = L0.map((l) => ({ ...l, status: sent[l.id] ? 'V Pipedrive' : l.status }));
+    const nNew = L.filter((l) => l.status !== 'V Pipedrive').length;
+    const M = [
+      { id: 'overview', label: 'Přehled' },
+      { id: 'posts', label: 'Články' },
+      { id: 'refs', label: 'Reference' },
+      { id: 'leads', label: 'Leady z funnelu', badge: nNew },
+      { id: 'events', label: 'Školení & akce' },
+      { id: 'settings', label: 'Nastavení' }
+    ];
+    const activeMenu = view === 'editor' ? 'posts' : view;
+    const menu = M.map((m) => {
+      const on = m.id === activeMenu;
+      return {
+        ...m,
+        current: on ? 'page' : 'false',
+        hasBadge: !!m.badge,
+        bg: on ? '#EAF0FE' : 'transparent',
+        fg: on ? accent : '#33416B',
+        pick: () => this.setState({ view: m.id })
+      };
+    });
+    const ST = {
+      'Publikováno': ['#DCFCE7', '#166534'],
+      'Koncept': ['#EEF2FC', '#4A5778'],
+      'Naplánováno': ['#E3EBFE', '#1745D6'],
+      'Nový': ['#EDE9FE', '#5B21B6'],
+      'Rezervováno': ['#DBEAFE', '#1E40AF'],
+      'V Pipedrive': ['#DCFCE7', '#166534']
+    };
+    const P = [
+      { title: '[Koncept nového žebříčku]', cat: 'LinkedIn žebříčky', status: 'Koncept', date: '—' },
+      { title: 'TOP 15 retail lídrů na českém LinkedIn za první polovinu roku 2026', cat: 'LinkedIn žebříčky', status: 'Publikováno', date: '25. 9. 2026' },
+      { title: 'Kdo vládne LinkedInu? Známe TOP 100 CEOs českého LinkedIn za první polovinu roku 2026', cat: 'LinkedIn žebříčky', status: 'Publikováno', date: '25. 8. 2026' },
+      { title: 'TOP 20 českých CEOs ve finančním sektoru za rok 2025', cat: 'LinkedIn žebříčky', status: 'Publikováno', date: '13. 7. 2026' },
+      { title: 'TOP 50 nejvlivnějších CEOs v ČR na LinkedIn – update za celý rok 2025', cat: 'LinkedIn žebříčky', status: 'Publikováno', date: '25. 3. 2026' },
+      { title: '2025 versus 2026: aktualizovaný žebříček firem podle počtu sledujících na LinkedIn', cat: 'LinkedIn žebříčky', status: 'Publikováno', date: '27. 2. 2026' },
+      { title: '200+ vstupních auditů u našich klientů: co jsme se díky nim naučili', cat: 'Praxe & tipy', status: 'Publikováno', date: '26. 11. 2025' }
+    ];
+    const openEditor = () => this.setState({ view: 'editor' });
+    const posts = P.map((p) => ({ ...p, sBg: ST[p.status][0], sFg: ST[p.status][1] }));
+    const LF = [
+      { id: 'all', label: 'Vše' },
+      { id: 'Nový', label: 'Nové' },
+      { id: 'Rezervováno', label: 'Rezervované' },
+      { id: 'V Pipedrive', label: 'V Pipedrive' }
+    ];
+    const lf = this.state.leadFilter;
+    const leadFilters = LF.map((f) => {
+      const on = f.id === lf;
+      return {
+        ...f,
+        active: on,
+        count: f.id === 'all' ? L.length : L.filter((l) => l.status === f.id).length,
+        bg: on ? accent : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#0E1B45',
+        bd: on ? accent : '#CBD6F0',
+        pick: () => this.setState({ leadFilter: f.id })
+      };
+    });
+    const leads = L
+      .filter((l) => lf === 'all' || l.status === lf)
+      .map((l) => ({
+        ...l,
+        scoreW: l.score + '%',
+        sBg: ST[l.status][0],
+        sFg: ST[l.status][1],
+        canSend: l.status !== 'V Pipedrive',
+        sent: l.status === 'V Pipedrive',
+        send: () => this.setState({ sent: { ...sent, [l.id]: true } })
+      }));
+    const titles = {
+      overview: ['Přehled', 'Web, blog a funnel na jednom místě'],
+      posts: ['Články', 'Sales Tech blog – správa obsahu'],
+      editor: ['Nový článek', 'Koncept se ukládá automaticky'],
+      refs: ['Reference', 'Případové studie na webu'],
+      leads: ['Leady z funnelu', 'start.futuresales.cz · odpovědi z testu a rezervace'],
+      events: ['Školení & akce', 'Termíny workshopů a otevřených kurzů'],
+      settings: ['Nastavení', 'Uživatelé, integrace, SEO']
+    };
+    const t = titles[view] || titles.overview;
+    const kpis = [
+      { label: 'Leady z funnelu (30 dní)', value: '38', note: 'ukázková hodnota' },
+      { label: 'Test → rezervace', value: '24 %', note: 'ukázková hodnota' },
+      { label: 'Rezervované konzultace', value: '9', note: 'ukázková hodnota' },
+      { label: 'Publikované články', value: '8', note: 'od 10/2025' }
+    ];
+    const funnel = [
+      { label: 'Návštěva stránky', w: '100%', v: '640', c: '#DCE5FD' },
+      { label: 'Spuštěný test', w: '41%', v: '262', c: '#B8CBFA' },
+      { label: 'Vyplněný kontakt', w: '15%', v: '38', c: '#1745D6' },
+      { label: 'Rezervace', w: '6%', v: '9', c: '#0F33A8' }
+    ];
+    const refs = [
+      { tag: 'Leady', company: 'Tesena', person: 'Jan Stehlík, Head of BD' },
+      { tag: 'Schůzky', company: 'Dateio', person: 'Šimon Kočí, Head of Partnerships' },
+      { tag: 'Leady', company: 'Ebury', person: 'Tomáš Kudla, Head of Sales' },
+      { tag: 'Povědomí', company: 'Alef Nula', person: 'Tomáš Bubeník, Senior BD Manager' }
+    ];
+    const emptyMap = {
+      events: ['Zatím žádné akce', 'Sem přijdou termíny workshopů. Každá akce se automaticky propíše na web do sekce Školení & akce.'],
+      settings: ['Nastavení', 'Uživatelé a role, napojení Pipedrive a Ortto, SEO výchozí hodnoty, přesměrování starých URL.']
+    };
+    const em = emptyMap[view] || ['', ''];
+    return {
+      accent,
+      menu,
+      title: t[0],
+      subtitle: t[1],
+      showNew: view === 'posts',
+      openEditor,
+      saveDraft: () => this.setState({ view: 'posts' }),
+      isOverview: view === 'overview',
+      isPosts: view === 'posts',
+      isEditor: view === 'editor',
+      isLeads: view === 'leads',
+      isRefs: view === 'refs',
+      isEmpty: view === 'events' || view === 'settings',
+      emptyTitle: em[0],
+      emptyText: em[1],
+      kpis,
+      funnel,
+      posts,
+      leadFilters,
+      leads,
+      refs
+    };
+  }
+}
+document.addEventListener('alpine:init', function () {
+  Alpine.data('dc', function () {
+    return { __dc: new Component({}), get v() { return this.__dc.renderVals(); } };
+  });
+});
+</script>
+<script defer src="alpine.min.js"></script>
+</body>
+</html>
