@@ -101,6 +101,28 @@ tr:last-child td{border-bottom:0}
 .copy.done{background:#2E7D7B;border-color:#2E7D7B}
 .foto{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:#EDF3F8;border:1px solid var(--line);border-radius:5px;padding:1px 7px;display:inline-block;margin:2px 4px 2px 0}
 
+/* grafika */
+.gfx{display:flex;flex-direction:column;gap:12px}
+.gfx .lbl{font-size:13.5px;color:var(--fg-muted);margin-bottom:6px}
+.strip{display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.strip button{appearance:none;border:0;padding:0;background:none;cursor:zoom-in;flex:none;position:relative;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(21,34,58,.18)}
+.strip img{display:block;height:250px;width:auto}
+.strip.st img{height:300px}
+.strip button span{position:absolute;left:6px;top:6px;background:rgba(21,34,58,.78);color:#fff;font-family:var(--display);font-size:13px;padding:0 7px;border-radius:999px}
+.gnote{font-size:15px;color:var(--fg-muted);margin-top:2px}
+.state{display:inline-block;font-family:var(--display);font-size:13.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:1px solid #2E7D7B;color:#2E7D7B;white-space:nowrap}
+.state.wait{border-color:var(--accent);color:var(--accent)}
+.mock.real{aspect-ratio:auto;background:none;border:0}
+.mock.real img{display:block;width:100%;height:auto;border-radius:8px}
+.checks{margin:0;padding-left:20px}
+.checks li{margin:6px 0}
+#lb{position:fixed;inset:0;background:rgba(8,14,24,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:calc(100vh - 90px);border-radius:6px}
+#lb .bar{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;align-items:center;gap:14px;color:#fff;font-family:var(--display);font-size:17px}
+#lb button{appearance:none;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;font:600 17px var(--display);padding:6px 14px;border-radius:999px;cursor:pointer}
+#lb .x{position:absolute;top:12px;right:12px}
+@media (max-width:560px){ .strip img{height:200px} .strip.st img{height:240px} }
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg-muted);font-size:14.5px}
 
 @media (max-width:560px){
@@ -133,7 +155,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
     <h1>Obsahový plán — listopad a prosinec</h1>
     <div class="sub">Ski centrum Šafář · sociální sítě, sezóna 2026/27</div>
     <div class="meta">
-      <span>Verze ze dne 25. 10. 2026</span>
+      <span>Verze ze dne 25. 10. 2026 · grafika listopadu doplněna 4. 11. 2026</span>
       <span>Rytmus: úterý a pátek</span>
       <span><a href="https://drive.google.com/drive/folders/1HpaHMlA3ogh6AcqXFlcAg3UNStChAPf5" target="_blank" rel="noopener">Sdílená složka s podklady →</a></span>
     </div>
@@ -215,9 +237,9 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <p class="lede">Víc jich není potřeba. Každý příspěvek v plánu má u sebe napsáno, která se použije.</p>
 <div class="grid g3">
   <div class="card">
-    <div class="mock"><div class="ph"></div><span class="kick">Archiv</span><span class="logo"></span><div class="bar">Takhle vypadala minulá zima</div></div>
+    <div class="mock real"><img src="grafika/01_feed_1.jpg" alt="Ukázka šablony A — úvodní snímek karuselu" loading="lazy"></div>
     <h3 style="margin-top:0">A — Karusel</h3>
-    <p style="margin:0">3–5 snímků. První nese celý nadpis, další jsou fotky s jednou větou dole. Poslední snímek vždy výzva k akci. Formát 1080×1080.</p>
+    <p style="margin:0">3–5 snímků. První nese celý nadpis, další jsou fotky s jednou větou dole. Poslední snímek vždy výzva k akci. Formát 1080×1350.</p>
   </div>
   <div class="card">
     <div class="mock v2"><div class="ph"></div><span class="kick">Odpověď</span><span class="logo"></span><div class="bar">Od kolika let dávat dítě na lyže?</div></div>
@@ -225,7 +247,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
     <p style="margin:0">Svislé video 1080×1920, 20–40 sekund. Otázka velkým písmem první dvě vteřiny, pak mluví člověk. Vždy titulky — většina lidí to má bez zvuku.</p>
   </div>
   <div class="card">
-    <div class="mock v3"><div class="ph"></div><span class="logo"></span><div class="big">Otevíráme<br>13. prosince</div></div>
+    <div class="mock real"><img src="grafika/04_feed.jpg" alt="Ukázka šablony C — jeden snímek" loading="lazy"></div>
     <h3 style="margin-top:0">C — Jeden snímek</h3>
     <p style="margin:0">Jedna fotka, jedno sdělení, nic víc. Na oznámení a připomínky. Text drží maximálně osm slov. Formát 1080×1350.</p>
   </div>
@@ -253,12 +275,35 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
   <div><h3 style="margin-top:0">Prosinec 2026</h3><div class="cal" id="cal12"></div></div>
 </div>
 
+<h2>Grafika listopadu — ke schválení</h2>
+<p class="lede">Posty 01–08 jsou hotové ve dvou formátech: feed 1080×1350 (Instagram a Facebook) a story 1080×1920. Náhledy jsou přímo u každého příspěvku níže, kliknutím se otevřou v plné velikosti. Texty příspěvků se nezměnily.</p>
+<div class="grid g2">
+  <div class="card">
+    <h3 style="margin-top:0">Co je hotové</h3>
+    <ul class="checks">
+      <li>8 příspěvků: 5 karuselů a 3 jednotlivé snímky, celkem 21 snímků v každém formátu.</li>
+      <li>Barvy, písmo a logo podle brand manuálu. Malinová jen na jednom tlačítku za post.</li>
+      <li>Na žádné fotce není rozpoznatelný obličej. Fotka z webu je použitá jen jako výřez pod úrovní obličejů.</li>
+      <li>Dárkový poukaz i jako samostatná grafika k tisku nebo poslání (u příspěvku 07).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Co prosím potvrdit</h3>
+    <ul class="checks">
+      <li><strong>08 · Co je u nás nového</strong> — snímky 2 a 3 čekají na novinky od majitele (do 20. 11.). Text se doplní do hotové šablony.</li>
+      <li><strong>06 · Chata Viktorka</strong> — fotka chaty zatím chybí, použitá je záložní fotka 01. Až přijde nová, vymění se.</li>
+      <li><strong>03 · Servis lyží</strong> — výřez lyží z fotky 03. Nová fotka lyží ve stojanu by byla lepší.</li>
+      <li><strong>Kontakty</strong> — u náboru (02, 04) „Přihláška → odkaz v biu“, u školních kurzů (05) office@skicentrumsafar.cz a 603 327 525.</li>
+    </ul>
+  </div>
+</div>
+
 <h2>Plán příspěvků</h2>
 <p class="lede">Šestnáct příspěvků, listopad a prosinec. U každého je šablona, doporučená fotka, co na ní má být vidět, proč tam ten příspěvek je a hotový text ke zkopírování.</p>
 <div id="posts"></div>
 
 <footer>
-  Ski centrum Šafář · obsahový plán sezóny 2026/27 · aktualizováno 25. 10. 2026 · interní pracovní stránka<br>
+  Ski centrum Šafář · obsahový plán sezóny 2026/27 · aktualizováno 25. 10. 2026, grafika listopadu 4. 11. 2026 · interní pracovní stránka<br>
   Přihlašovací formulář pro instruktory: <a href="https://airtable.com/appiwirG7DGnntmSU/pagE6zv82c2nxqqr5/form" target="_blank" rel="noopener">airtable.com/…/form</a>
 </footer>
 
@@ -452,6 +497,35 @@ Napište zprávu, pošleme ho během dneška v elektronické podobě i k vytišt
 Tohle je důvod, proč tu práci děláme.`}
 ];
 
+const G = {
+ 1:{n:5,note:"Snímky 2–4 jsou fotky s jednou větou, na posledním datum otevření a výzva k rezervaci."},
+ 2:{n:4,note:"Snímky 2 a 3 na světlé ploše, aby se seznamy daly přečíst. Snímek 1 se použije i pro placenou reklamu."},
+ 3:{n:1,note:"Výřez lyží v popředí fotky 03, text nahoře."},
+ 4:{n:1,note:"Fotka 05 jako ztmavené pozadí."},
+ 5:{n:3},
+ 6:{n:1,note:"Záložní fotka 01, než přijde fotka chaty.",wait:true},
+ 7:{n:3,extra:"07_poukaz-samostatny_1872px.jpg",note:"Poslední náhled je samostatný poukaz k tisku nebo poslání e-mailem. Je obecný, bez ceny — „lekce / částka“ se vypíše ručně."},
+ 8:{n:3,note:"Snímky 2 a 3 čekají na novinky od majitele (do 20. 11.).",wait:true}
+};
+const gsrc=(n,f,i,c)=>`grafika/${String(n).padStart(2,"0")}_${f}${c>1?"_"+i:""}.jpg`;
+const LB=[];
+function strip(p){
+  const g=G[p.n]; if(!g) return "";
+  const one=(f,cls)=>{
+    let h=`<div><div class="lbl">${f==="feed"?"Feed 1080×1350":"Story 1080×1920"}</div><div class="strip ${cls}">`;
+    const list=[];
+    for(let i=1;i<=g.n;i++) list.push([gsrc(p.n,f,i,g.n), g.n>1?String(i):""]);
+    if(f==="feed"&&g.extra) list.push(["grafika/"+g.extra,"poukaz"]);
+    list.forEach(([src,lab])=>{ const k=LB.push({src,t:`${String(p.n).padStart(2,"0")} · ${p.t} · ${f==="feed"?"feed":"story"}${lab?" · "+lab:""}`})-1;
+      h+=`<button data-lb="${k}" aria-label="Zvětšit"><img src="${src}" alt="${esc(p.t)} — ${f} ${lab}" loading="lazy">${lab?`<span>${lab}</span>`:""}</button>`; });
+    return h+"</div></div>";
+  };
+  return `<div class="row"><div class="k">Grafika</div><div class="gfx">
+    <div><span class="state${g.wait?" wait":""}">${g.wait?"Hotovo, čeká na podklad":"Hotovo — ke schválení"}</span></div>
+    ${one("feed","")}${one("story","st")}
+    ${g.note?`<div class="gnote">${esc(g.note)}</div>`:""}</div></div>`;
+}
+
 const PCOL = {archiv:"var(--c-archiv)",pripravy:"var(--c-pripravy)",kampan:"var(--c-kampan)",odpovedi:"var(--c-odpovedi)",lide:"var(--c-lide)",pokrok:"var(--c-pokrok)"};
 
 /* kalendar */
@@ -485,6 +559,7 @@ document.getElementById("posts").innerHTML = posts.map(p=>`
   <div class="body">
     <div class="row"><div class="k">Šablona</div><div>${esc(p.tpl)}</div></div>
     <div class="row"><div class="k">Fotky (doporučení)</div><div>${p.vid?'<span class="tag">natáčí se nově — fotka z archivu se nepoužívá</span>':p.foto.map(f=>`<span class="foto">${f}</span>`).join("")}</div></div>
+    ${strip(p)}
     <div class="row"><div class="k">Co udělat</div><div>${esc(p.mat)}</div></div>
     <div class="row"><div class="k">Proč</div><div>${esc(p.why)}</div></div>
     ${p.note?`<div class="row"><div class="k">Pozor</div><div><strong>${esc(p.note)}</strong></div></div>`:""}
@@ -495,7 +570,20 @@ document.getElementById("posts").innerHTML = posts.map(p=>`
   </div>
 </div>`).join("");
 
+const lb=document.createElement("div");lb.id="lb";
+lb.innerHTML=`<button class="x" aria-label="Zavřít">Zavřít ✕</button><img alt=""><div class="bar"><button class="pv" aria-label="Předchozí">←</button><span class="t"></span><button class="nx" aria-label="Další">→</button></div>`;
+document.body.appendChild(lb);
+let cur=0;
+function show(k){cur=(k+LB.length)%LB.length;lb.querySelector("img").src=LB[cur].src;lb.querySelector(".t").textContent=LB[cur].t;lb.classList.add("on")}
+lb.addEventListener("click",e=>{
+  if(e.target.closest(".pv")) show(cur-1); else if(e.target.closest(".nx")) show(cur+1);
+  else if(e.target.closest(".x")||e.target===lb) lb.classList.remove("on");
+});
+document.addEventListener("keydown",e=>{ if(!lb.classList.contains("on")) return;
+  if(e.key==="Escape") lb.classList.remove("on"); if(e.key==="ArrowLeft") show(cur-1); if(e.key==="ArrowRight") show(cur+1); });
+
 document.addEventListener("click",e=>{
+  const z=e.target.closest("[data-lb]"); if(z){ show(+z.dataset.lb); return; }
   const b=e.target.closest(".copy"); if(!b) return;
   const t=document.getElementById("c"+b.dataset.n).innerText;
   const done=()=>{b.textContent="Zkopírováno";b.classList.add("done");setTimeout(()=>{b.textContent="Zkopírovat text";b.classList.remove("done")},1600)};
